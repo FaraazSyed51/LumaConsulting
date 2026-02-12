@@ -195,7 +195,7 @@ export default function InterestForm() {
                 Thank You!
               </h3>
               <p className="text-lg text-gray-600">
-                {"We've"} received your interest form. Our team will be in touch with you soon.
+                We have received your interest form. Our team will be in touch with you soon.
               </p>
             </motion.div>
           ) : (
