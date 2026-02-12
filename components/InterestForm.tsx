@@ -195,7 +195,7 @@ export default function InterestForm() {
                 Thank You!
               </h3>
               <p className="text-lg text-gray-600">
-                We've received your interest form. Our team will be in touch with you soon.
+                {"We've"} received your interest form. Our team will be in touch with you soon.
               </p>
             </motion.div>
           ) : (
@@ -290,7 +290,7 @@ export default function InterestForm() {
                   value={formData.message}
                   onChange={handleChange}
                   className="w-full px-4 py-3.5 rounded-xl border border-osu-gray-light-40 bg-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-osu-scarlet focus:border-transparent transition-all resize-none shadow-sm"
-                  placeholder="Share your background, interests, or what you're looking for..."
+                  placeholder={"Share your background, interests, or what you're looking for..."}
                 />
               </div>
 
