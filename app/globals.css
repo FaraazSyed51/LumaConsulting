@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-gray-200;
+  }
+  body {
+    @apply bg-white text-gray-900 antialiased;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+  }
+}
+
+/* Optional: subtle background patterns for white sections (OSU gray) */
+.bg-pattern-dots {
+  background-color: #ffffff;
+  background-image: radial-gradient(circle at 1px 1px, #E1E5E8 1px, transparent 0);
+  background-size: 24px 24px;
+}
+.bg-pattern-grid {
+  background-color: #ffffff;
+  background-image:
+    linear-gradient(#E1E5E8 1px, transparent 1px),
+    linear-gradient(90deg, #E1E5E8 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+.bg-pattern-gradient {
+  background: linear-gradient(180deg, #ffffff 0%, #F9FAFA 50%, #ffffff 100%);
+}
+/* Dots + gradient combined: soft gradient with dot grid on top */
+.bg-pattern-dots-gradient {
+  background-color: #ffffff;
+  background-image:
+    radial-gradient(circle at 1px 1px, #E1E5E8 1px, transparent 0),
+    linear-gradient(180deg, #ffffff 0%, #F9FAFA 45%, #F5F6F7 55%, #ffffff 100%);
+  background-size: 24px 24px, 100% 100%;
+  background-position: 0 0, 0 0;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .gradient-scarlet {
+    background: linear-gradient(135deg, #BA0C2F 0%, #70071C 100%);
+  }
+  
+  .gradient-gray {
+    background: linear-gradient(135deg, #A7B1B7 0%, #5C6F7B 100%);
+  }
+  
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .accent-line-scarlet {
+    @apply block h-1 w-12 rounded-full bg-osu-scarlet;
+  }
+
+  .accent-line-gray {
+    @apply block h-0.5 w-8 rounded-full bg-osu-gray;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #BA0C2F;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #70071C;
+}
