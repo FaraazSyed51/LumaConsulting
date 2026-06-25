@@ -1,10 +1,42 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
+import { Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "Luma Consulting | Muslim Tech Collaborative at OSU",
-  description: "Empowering businesses and nonprofits through student consulting. Join Luma Consulting to connect with talented OSU students.",
-  keywords: "consulting, OSU, Muslim Tech Collaborative, MTC, student consulting, business consulting",
+  title: {
+    default: "MTC at Ohio State | Muslim Tech Collaborative",
+    template: "%s | MTC at Ohio State",
+  },
+  description:
+    "Muslim Tech Collaborative at Ohio State — building a home for Muslims in tech through project-based learning, technical education, and professional development.",
+  keywords: [
+    "MTC",
+    "Muslim Tech Collaborative",
+    "Ohio State",
+    "OSU",
+    "Luma Consulting",
+    "Muslim tech",
+    "student consulting",
+  ],
+  openGraph: {
+    title: "MTC at Ohio State",
+    description:
+      "A home for Muslims in tech at Ohio State — solve real problems, build skills, accelerate careers.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -13,8 +45,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" className={`${plusJakarta.variable} ${spaceGrotesk.variable}`}>
+      <body className="font-sans">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }

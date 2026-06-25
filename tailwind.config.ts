@@ -8,8 +8,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "var(--font-sans)", "sans-serif"],
+      },
       colors: {
-        // OSU Official Colors
+        // OSU scarlet + neutral gray + white
         osu: {
           scarlet: {
             DEFAULT: "#BA0C2F",
@@ -19,19 +23,19 @@ const config: Config = {
             },
           },
           gray: {
-            DEFAULT: "#A7B1B7",
+            DEFAULT: "#6B6B6B",
             light: {
-              20: "#D4D9DC",
-              40: "#E1E5E8",
-              60: "#EEF0F2",
-              80: "#F5F6F7",
-              90: "#F9FAFA",
+              20: "#B0B0B0",
+              40: "#A3A3A3",
+              60: "#C2C2C2",
+              80: "#D4D4D4",
+              90: "#E0E0E0",
             },
             dark: {
-              20: "#8E9BA3",
-              40: "#75858F",
-              60: "#5C6F7B",
-              80: "#435967",
+              20: "#8A8A8A",
+              40: "#707070",
+              60: "#5A5A5A",
+              80: "#454545",
             },
           },
         },

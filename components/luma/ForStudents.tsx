@@ -44,7 +44,7 @@ export default function ForStudents() {
   ];
 
   return (
-    <section id="students" className="py-24 bg-gradient-to-b from-white to-osu-gray-light-80">
+    <section id="students" className="py-24 bg-white border-y border-osu-gray-light-40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -57,7 +57,7 @@ export default function ForStudents() {
           <div className="inline-flex items-center justify-center w-20 h-20 bg-osu-scarlet rounded-full mb-6">
             <GraduationCap className="w-10 h-10 text-white" />
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-osu-gray-dark-80 mb-4">
             Join Our Team
           </h2>
           <p className="text-xl text-osu-gray-dark-40 max-w-2xl mx-auto">
@@ -80,10 +80,10 @@ export default function ForStudents() {
                   {benefit.icon}
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  <h3 className="text-xl font-bold text-osu-gray-dark-80 mb-2">
                     {benefit.title}
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-osu-gray-dark-40">
                     {benefit.description}
                   </p>
                 </div>
@@ -100,9 +100,9 @@ export default function ForStudents() {
         >
           <div className="flex items-center space-x-3 mb-6">
             <Zap className="w-8 h-8 text-osu-scarlet" />
-            <h3 className="text-3xl font-bold text-gray-900">Skills we look for</h3>
+            <h3 className="text-3xl font-bold text-osu-gray-dark-80">Skills we look for</h3>
           </div>
-          <p className="text-lg text-gray-600 mb-6">
+          <p className="text-lg text-osu-gray-dark-40 mb-6">
             We take students from different majors and experience levels. These are areas we often need—but if yours isn’t listed, still apply.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -123,7 +123,7 @@ export default function ForStudents() {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.9 }}
-            className="mt-8 text-lg text-gray-600 text-center"
+            className="mt-8 text-lg text-osu-gray-dark-40 text-center"
           >
             Don’t see your skill? Still fill out the form—we add new project types as partners come in.
           </motion.p>

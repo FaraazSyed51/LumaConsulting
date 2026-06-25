@@ -44,7 +44,7 @@ export default function ForBusinesses() {
   ];
 
   return (
-    <section id="businesses" className="py-24 bg-pattern-dots-gradient">
+    <section id="businesses" className="py-24 bg-section-gray">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -57,7 +57,7 @@ export default function ForBusinesses() {
           <div className="inline-flex items-center justify-center w-20 h-20 bg-osu-scarlet rounded-full mb-6">
             <Building2 className="w-10 h-10 text-white" />
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-osu-gray-dark-80 mb-4">
             Partner With Us
           </h2>
           <p className="text-xl text-osu-gray-dark-40 max-w-2xl mx-auto">
@@ -80,10 +80,10 @@ export default function ForBusinesses() {
                   {benefit.icon}
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  <h3 className="text-xl font-bold text-osu-gray-dark-80 mb-2">
                     {benefit.title}
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-osu-gray-dark-40">
                     {benefit.description}
                   </p>
                 </div>

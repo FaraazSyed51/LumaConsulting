@@ -4,55 +4,55 @@
 
 @layer base {
   * {
-    @apply border-gray-200;
+    @apply border-osu-gray-light-40;
   }
   body {
-    @apply bg-white text-gray-900 antialiased;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
+    @apply bg-white text-osu-gray-dark-80 antialiased;
+    font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      'Roboto', sans-serif;
   }
 }
 
-/* Optional: subtle background patterns for white sections (OSU gray) */
 .bg-pattern-dots {
-  background-color: #ffffff;
-  background-image: radial-gradient(circle at 1px 1px, #E1E5E8 1px, transparent 0);
+  background-color: #D4D4D4;
+  background-image: radial-gradient(circle at 1px 1px, #B0B0B0 1px, transparent 0);
   background-size: 24px 24px;
 }
-.bg-pattern-grid {
-  background-color: #ffffff;
-  background-image:
-    linear-gradient(#E1E5E8 1px, transparent 1px),
-    linear-gradient(90deg, #E1E5E8 1px, transparent 1px);
-  background-size: 32px 32px;
-}
-.bg-pattern-gradient {
-  background: linear-gradient(180deg, #ffffff 0%, #F9FAFA 50%, #ffffff 100%);
-}
-/* Dots + gradient combined: soft gradient with dot grid on top */
+
 .bg-pattern-dots-gradient {
-  background-color: #ffffff;
+  background-color: #D4D4D4;
   background-image:
-    radial-gradient(circle at 1px 1px, #E1E5E8 1px, transparent 0),
-    linear-gradient(180deg, #ffffff 0%, #F9FAFA 45%, #F5F6F7 55%, #ffffff 100%);
+    radial-gradient(circle at 1px 1px, #B0B0B0 1px, transparent 0),
+    linear-gradient(180deg, #D4D4D4 0%, #C2C2C2 50%, #D4D4D4 100%);
   background-size: 24px 24px, 100% 100%;
   background-position: 0 0, 0 0;
 }
 
 @layer utilities {
+  .bg-section-gray {
+    @apply bg-osu-gray-light-80;
+  }
+
+  .bg-section-muted {
+    @apply bg-osu-gray-light-60;
+  }
+
+  .bg-section-dark {
+    @apply bg-osu-gray-dark-80;
+  }
+
   .text-balance {
     text-wrap: balance;
   }
-  
+
   .gradient-scarlet {
     background: linear-gradient(135deg, #BA0C2F 0%, #70071C 100%);
   }
-  
+
   .gradient-gray {
-    background: linear-gradient(135deg, #A7B1B7 0%, #5C6F7B 100%);
+    background: linear-gradient(135deg, #6B6B6B 0%, #454545 100%);
   }
-  
+
   .glass-effect {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
@@ -66,20 +66,46 @@
   .accent-line-gray {
     @apply block h-0.5 w-8 rounded-full bg-osu-gray;
   }
+
+  .text-heading {
+    @apply text-osu-gray-dark-80;
+  }
+
+  .text-body {
+    @apply text-osu-gray-dark-40;
+  }
+
+  .text-muted {
+    @apply text-osu-gray;
+  }
 }
 
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+  /* Keep anchored sections clear of the fixed navigation */
+  scroll-padding-top: 6rem;
 }
 
-/* Custom scrollbar */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #D4D4D4;
 }
 
 ::-webkit-scrollbar-thumb {

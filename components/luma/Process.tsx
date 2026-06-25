@@ -34,7 +34,7 @@ export default function Process() {
   ];
 
   return (
-    <section id="process" className="py-24 bg-gradient-to-b from-osu-gray-light-80 to-white">
+    <section id="process" className="py-24 bg-section-muted">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -44,7 +44,7 @@ export default function Process() {
           className="text-center mb-16"
         >
           <span className="inline-block h-1 w-12 rounded-full bg-osu-scarlet mb-4" />
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-osu-gray-dark-80 mb-4">
             Our Approach
           </h2>
           <p className="text-xl text-osu-gray-dark-40 max-w-2xl mx-auto">
@@ -60,10 +60,10 @@ export default function Process() {
             {phases.map((phase, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+                whileHover={{ y: -6 }}
                 className="relative"
               >
                 <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-lg transition-all border border-osu-gray-light-40 border-t-4 border-t-osu-scarlet">
@@ -75,13 +75,10 @@ export default function Process() {
                       {phase.number}
                     </span>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                    Phase {phase.number}
-                  </h3>
-                  <h4 className="text-xl font-semibold text-osu-scarlet mb-4">
+                  <h3 className="text-2xl font-bold text-osu-gray-dark-80 mb-4">
                     {phase.title}
-                  </h4>
-                  <p className="text-gray-600 leading-relaxed">
+                  </h3>
+                  <p className="text-osu-gray-dark-40 leading-relaxed">
                     {phase.description}
                   </p>
                 </div>
@@ -96,10 +93,10 @@ export default function Process() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="mt-16 p-8 bg-white rounded-2xl shadow-lg border border-osu-gray-light-40"
         >
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">
+          <h3 className="text-2xl font-bold text-osu-gray-dark-80 mb-4">
             Payment is flexible
           </h3>
-          <p className="text-lg text-gray-600 leading-relaxed">
+          <p className="text-lg text-osu-gray-dark-40 leading-relaxed">
             Some partners pay students; others offer volunteer or stipend arrangements. We’re happy to work with your budget. Students join mainly for the experience and something concrete for their portfolio, so both paid and unpaid setups work.
           </p>
         </motion.div>
