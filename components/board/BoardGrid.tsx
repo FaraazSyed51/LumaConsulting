@@ -26,10 +26,10 @@ function BoardCard({
       whileHover={{ y: -6 }}
       className="group text-center"
     >
-      <div className="relative mx-auto w-40 h-40 md:w-44 md:h-44 mb-5">
+      <div className="relative mx-auto w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 mb-5">
         <div className="absolute inset-0 rounded-full bg-gradient-to-br from-osu-scarlet to-osu-scarlet-dark-40 p-1 shadow-lg group-hover:shadow-xl transition-shadow">
           <div className="w-full h-full rounded-full bg-gradient-to-br from-osu-gray-light-80 to-osu-gray-light-60 flex items-center justify-center overflow-hidden">
-            <span className="text-3xl md:text-4xl font-bold text-osu-scarlet transition-transform duration-300 group-hover:scale-110">
+            <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-osu-scarlet transition-transform duration-300 group-hover:scale-110">
               {getInitials(name)}
             </span>
           </div>

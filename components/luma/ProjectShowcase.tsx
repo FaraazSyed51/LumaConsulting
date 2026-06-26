@@ -63,7 +63,7 @@ export default function ProjectShowcase() {
                     </div>
 
                     <div className="flex-shrink-0 sm:text-right max-w-full sm:max-w-[200px]">
-                      <p className="text-[0.65rem] font-semibold text-osu-gray uppercase tracking-widest mb-2">
+                      <p className="text-xs font-semibold text-osu-gray uppercase tracking-widest mb-2">
                         Partnership
                       </p>
                       {project.partner.logo ? (

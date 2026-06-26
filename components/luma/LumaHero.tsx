@@ -30,7 +30,11 @@ export default function LumaHero({ variant }: LumaHeroProps) {
   const c = copy[variant];
 
   const scrollTo = (href: string) => {
-    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    const el = document.querySelector(href);
+    if (!el) return;
+    const offset = href.startsWith("#") && document.querySelector(".luma-page") ? 132 : 80;
+    const top = el.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top, behavior: "smooth" });
   };
 
   return (

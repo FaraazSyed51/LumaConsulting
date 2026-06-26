@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/react";
 import { Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
@@ -14,6 +14,12 @@ const spaceGrotesk = Space_Grotesk({
   variable: "--font-display",
   display: "swap",
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#BA0C2F",
+};
 
 export const metadata: Metadata = {
   title: {
@@ -46,7 +52,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${plusJakarta.variable} ${spaceGrotesk.variable}`}>
-      <body className="font-sans">
+      <body className="font-sans overflow-x-hidden">
         {children}
         <Analytics />
       </body>

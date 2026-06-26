@@ -90,6 +90,15 @@ function LumaNavDropdown({
   );
 }
 
+const LUMA_SCROLL_OFFSET = 132; // fixed nav (80px) + sticky sub-nav (~52px)
+
+function scrollToSection(href: string) {
+  const el = document.querySelector(href);
+  if (!el) return;
+  const top = el.getBoundingClientRect().top + window.scrollY - LUMA_SCROLL_OFFSET;
+  window.scrollTo({ top, behavior: "smooth" });
+}
+
 export default function SiteNavigation({
   transparent = false,
 }: {
@@ -111,6 +120,13 @@ export default function SiteNavigation({
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [pathname]);
+
+  useEffect(() => {
+    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
 
   const textClass = useTransparent
     ? "text-white hover:text-white/80"
@@ -201,10 +217,15 @@ export default function SiteNavigation({
 
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`md:hidden p-2 rounded-lg ${
-              useTransparent ? "text-white" : "text-osu-gray-dark-60"
+            className={`md:hidden p-3 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg ${
+              isMobileMenuOpen
+                ? "text-osu-gray-dark-60"
+                : useTransparent
+                  ? "text-white"
+                  : "text-osu-gray-dark-60"
             }`}
             aria-label="Toggle menu"
+            aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -324,15 +345,15 @@ export function LumaSubNav({ variant = "student" }: { variant?: "student" | "par
   }, [sections]);
 
   const scrollTo = (href: string) => {
-    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    scrollToSection(href);
   };
 
   return (
     <div className="sticky top-20 z-40 bg-white/95 backdrop-blur-md border-b border-osu-gray-light-40 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between py-3 gap-4 overflow-x-auto scrollbar-hide">
+        <div className="flex items-center justify-between py-2 sm:py-3 gap-3 overflow-x-auto scrollbar-hide">
           <div className="flex items-center gap-1 min-w-0">
-            <span className="text-sm font-bold text-osu-scarlet whitespace-nowrap mr-4">
+            <span className="hidden sm:inline text-sm font-bold text-osu-scarlet whitespace-nowrap mr-3">
               Luma for {variant === "partner" ? "Business" : "Students"}
             </span>
             <div className="flex items-center gap-1">
@@ -340,7 +361,7 @@ export function LumaSubNav({ variant = "student" }: { variant?: "student" | "par
                 <button
                   key={section.href}
                   onClick={() => scrollTo(section.href)}
-                  className={`px-3 py-1.5 text-sm font-medium rounded-lg whitespace-nowrap transition-colors ${
+                  className={`px-3 py-2.5 sm:px-4 min-h-[44px] text-sm font-medium rounded-lg whitespace-nowrap transition-colors ${
                     activeSection === section.href
                       ? "bg-osu-scarlet text-white"
                       : "text-osu-gray-dark-40 hover:text-osu-scarlet hover:bg-osu-gray-light-80"
@@ -353,7 +374,7 @@ export function LumaSubNav({ variant = "student" }: { variant?: "student" | "par
           </div>
           <Link
             href={otherPath}
-            className="flex-shrink-0 px-3 py-1.5 text-sm font-medium text-osu-gray-dark-40 hover:text-osu-scarlet hover:bg-osu-gray-light-80 rounded-lg whitespace-nowrap transition-colors"
+            className="flex-shrink-0 px-3 py-2.5 sm:px-4 min-h-[44px] flex items-center text-sm font-medium text-osu-gray-dark-40 hover:text-osu-scarlet hover:bg-osu-gray-light-80 rounded-lg whitespace-nowrap transition-colors"
           >
             {otherLabel} →
           </Link>

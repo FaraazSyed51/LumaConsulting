@@ -51,7 +51,7 @@ export default function Mission() {
             initial={{ opacity: 0, x: 40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative"
+            className="relative overflow-hidden"
           >
             <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
               <ImageSlot

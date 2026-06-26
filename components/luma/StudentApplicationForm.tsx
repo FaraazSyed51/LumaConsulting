@@ -217,7 +217,7 @@ function ProjectRanking({
                 type="button"
                 onClick={() => move(index, -1)}
                 disabled={index === 0}
-                className="p-1 rounded hover:bg-osu-gray-light-80 disabled:opacity-30"
+                className="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center rounded hover:bg-osu-gray-light-80 disabled:opacity-30"
                 aria-label="Move up"
               >
                 <ChevronUp className="w-4 h-4" />
@@ -226,7 +226,7 @@ function ProjectRanking({
                 type="button"
                 onClick={() => move(index, 1)}
                 disabled={index === order.length - 1}
-                className="p-1 rounded hover:bg-osu-gray-light-80 disabled:opacity-30"
+                className="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center rounded hover:bg-osu-gray-light-80 disabled:opacity-30"
                 aria-label="Move down"
               >
                 <ChevronDown className="w-4 h-4" />
