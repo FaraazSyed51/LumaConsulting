@@ -23,7 +23,7 @@ const paths = [
     label: "For Partners",
     headline: "Start a project with us",
     description:
-      "Businesses, nonprofits, and masjids — get real technical work done by OSU students with MTC support from kickoff to delivery.",
+      "Businesses, nonprofits, and masjids. Get real technical work done by OSU students with MTC support from kickoff to delivery.",
     cta: "Partner with Luma",
     accent: "from-osu-gray-dark-80 to-osu-gray-dark-60",
   },
@@ -63,7 +63,7 @@ export default function LumaHub() {
             transition={{ delay: 0.2 }}
             className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto"
           >
-            Luma connects OSU students with partners who need real technical work —
+            Luma connects OSU students with partners who need real technical work
             and gives both sides the structure to actually ship.
           </motion.p>
         </div>

@@ -64,7 +64,7 @@ export default function BoardGrid() {
         >
           <span className="inline-block h-1 w-16 rounded-full bg-osu-scarlet mb-6" />
           <p className="text-osu-gray-dark-40 max-w-xl mx-auto">
-            Our executive board leads MTC at Ohio State — from community events
+            Our executive board leads MTC at Ohio State, from community events
             and marketing to Luma Consulting and chapter operations.
           </p>
         </motion.div>

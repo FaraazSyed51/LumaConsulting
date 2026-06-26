@@ -351,33 +351,46 @@ export function LumaSubNav({ variant = "student" }: { variant?: "student" | "par
   return (
     <div className="sticky top-20 z-40 bg-white/95 backdrop-blur-md border-b border-osu-gray-light-40 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between py-2 sm:py-3 gap-3 overflow-x-auto scrollbar-hide">
-          <div className="flex items-center gap-1 min-w-0">
-            <span className="hidden sm:inline text-sm font-bold text-osu-scarlet whitespace-nowrap mr-3">
-              Luma for {variant === "partner" ? "Business" : "Students"}
+        <div className="flex flex-col gap-2 py-2 sm:py-3">
+          <div className="flex items-center justify-between sm:hidden">
+            <span className="text-sm font-bold text-osu-scarlet">
+              Luma {variant === "partner" ? "Business" : "Students"}
             </span>
-            <div className="flex items-center gap-1">
-              {sections.map((section) => (
-                <button
-                  key={section.href}
-                  onClick={() => scrollTo(section.href)}
-                  className={`px-3 py-2.5 sm:px-4 min-h-[44px] text-sm font-medium rounded-lg whitespace-nowrap transition-colors ${
-                    activeSection === section.href
-                      ? "bg-osu-scarlet text-white"
-                      : "text-osu-gray-dark-40 hover:text-osu-scarlet hover:bg-osu-gray-light-80"
-                  }`}
-                >
-                  {section.label}
-                </button>
-              ))}
-            </div>
+            <Link
+              href={otherPath}
+              className="px-3 py-2 min-h-[44px] flex items-center text-sm font-medium text-osu-gray-dark-40 hover:text-osu-scarlet hover:bg-osu-gray-light-80 rounded-lg whitespace-nowrap transition-colors"
+            >
+              {otherLabel} →
+            </Link>
           </div>
-          <Link
-            href={otherPath}
-            className="flex-shrink-0 px-3 py-2.5 sm:px-4 min-h-[44px] flex items-center text-sm font-medium text-osu-gray-dark-40 hover:text-osu-scarlet hover:bg-osu-gray-light-80 rounded-lg whitespace-nowrap transition-colors"
-          >
-            {otherLabel} →
-          </Link>
+          <div className="flex items-center justify-between gap-3 min-w-0">
+            <div className="flex items-center gap-1 min-w-0 flex-1 overflow-x-auto scrollbar-hide">
+              <span className="hidden sm:inline text-sm font-bold text-osu-scarlet whitespace-nowrap mr-3 flex-shrink-0">
+                Luma for {variant === "partner" ? "Business" : "Students"}
+              </span>
+              <div className="flex items-center gap-1 flex-shrink-0">
+                {sections.map((section) => (
+                  <button
+                    key={section.href}
+                    onClick={() => scrollTo(section.href)}
+                    className={`px-3 py-2.5 sm:px-4 min-h-[44px] text-sm font-medium rounded-lg whitespace-nowrap transition-colors ${
+                      activeSection === section.href
+                        ? "bg-osu-scarlet text-white"
+                        : "text-osu-gray-dark-40 hover:text-osu-scarlet hover:bg-osu-gray-light-80"
+                    }`}
+                  >
+                    {section.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <Link
+              href={otherPath}
+              className="hidden sm:flex flex-shrink-0 px-3 py-2.5 sm:px-4 min-h-[44px] items-center text-sm font-medium text-osu-gray-dark-40 hover:text-osu-scarlet hover:bg-osu-gray-light-80 rounded-lg whitespace-nowrap transition-colors"
+            >
+              {otherLabel} →
+            </Link>
+          </div>
         </div>
       </div>
     </div>

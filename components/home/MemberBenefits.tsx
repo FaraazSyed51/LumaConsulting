@@ -40,7 +40,7 @@ export default function MemberBenefits() {
             Why Join MTC
           </p>
           <h2 className="text-4xl md:text-5xl font-bold text-osu-gray-dark-80 mb-4">
-            More Than a Club — A Network
+            More Than a Club. A Network
           </h2>
           <span className="inline-block h-1 w-16 rounded-full bg-osu-scarlet mb-6" />
           <p className="text-xl text-osu-gray-dark-40 max-w-3xl mx-auto leading-relaxed">
@@ -54,7 +54,7 @@ export default function MemberBenefits() {
               {NATIONAL_MTC_LABEL}
             </a>{" "}
             gives you access to jobs, events, connections, projects, and
-            member-only resources across the national network — plus everything
+            member-only resources across the national network, plus everything
             our Ohio State chapter offers on campus.
           </p>
         </motion.div>

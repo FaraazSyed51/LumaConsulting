@@ -24,7 +24,7 @@ export default function BoardPage() {
               Meet Us
             </h1>
             <p className="text-xl text-white/85 max-w-2xl">
-              The students leading MTC at Ohio State — building community,
+              The students leading MTC at Ohio State, building community,
               driving projects, and shaping the future of Muslim representation
               in tech.
             </p>

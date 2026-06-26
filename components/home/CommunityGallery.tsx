@@ -60,7 +60,7 @@ export default function CommunityGallery() {
           </h2>
           <span className="inline-block h-1 w-16 rounded-full bg-osu-scarlet mb-6" />
           <p className="text-xl text-osu-gray-dark-40 max-w-2xl mx-auto">
-            From involvement fairs to workshops and project nights — this is what
+            From involvement fairs to workshops and project nights. This is what
             building a home for Muslims in tech looks like on campus.
           </p>
         </motion.div>

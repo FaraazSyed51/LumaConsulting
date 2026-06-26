@@ -414,7 +414,7 @@ export default function StudentApplicationForm() {
               <div className="p-6 md:p-8">
                 <h3 className="text-lg font-bold text-osu-gray-dark-80 mb-1">Project briefs</h3>
                 <p className="text-sm text-osu-gray-dark-40 mb-5">
-                  Review each project before you apply — content matches our live openings.
+                  Review each project before you apply. Content matches our live openings.
                 </p>
                 <div className="space-y-3">
                   {lumaProjects.map((project) => {
@@ -542,7 +542,7 @@ export default function StudentApplicationForm() {
                         <div className="flex-1 min-w-0">
                           <p className="text-sm font-medium text-osu-gray-dark-80 truncate">{resumeFile.name}</p>
                           <p className="text-xs text-osu-gray-dark-40">
-                            {(resumeFile.size / 1024).toFixed(0)} KB — PDF or Word
+                            {(resumeFile.size / 1024).toFixed(0)} KB · PDF or Word
                           </p>
                         </div>
                         <button
@@ -570,7 +570,7 @@ export default function StudentApplicationForm() {
                       <p className="text-xs text-osu-scarlet mt-1.5">{resumeError}</p>
                     )}
                     <p className="text-xs text-osu-gray-dark-40 mt-1.5">
-                      Saved to our Google Drive — PDFs preview in-browser; Word files open in Google Docs viewer.
+                      Saved to our Google Drive. PDFs preview in-browser; Word files open in Google Docs viewer.
                     </p>
                   </div>
                 </div>
@@ -601,7 +601,7 @@ export default function StudentApplicationForm() {
               <div className="p-6 md:p-8 pt-0 space-y-4">
                 <p className="text-xs text-osu-gray-dark-40 text-center leading-relaxed">
                   By submitting, you agree we may contact you about this application and future Luma
-                  projects — no need to re-apply when new teams open.
+                  projects. No need to re-apply when new teams open.
                 </p>
                 <button
                   type="submit"

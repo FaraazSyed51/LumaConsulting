@@ -28,7 +28,7 @@ const initiatives = [
     title: "Luma Consulting",
     subtitle: "Pulse Consulting at OSU",
     description:
-      "Student teams deliver real technical work for mosques, nonprofits, and local organizations — building portfolios while creating community impact.",
+      "Student teams deliver real technical work for mosques, nonprofits, and local organizations, building portfolios while creating community impact.",
     href: "/luma",
   },
   {
@@ -55,7 +55,7 @@ const values = [
     icon: Target,
     title: "Action-Oriented",
     description:
-      "We don't just talk about change — we build it. Real projects, real deliverables, and impact that communities can see and use.",
+      "We don't just talk about change. We build it. Real projects, real deliverables, and impact that communities can see and use.",
   },
   {
     icon: Heart,
@@ -73,7 +73,7 @@ const values = [
     icon: Users,
     title: "Inclusive by Design",
     description:
-      "Muslims and allies, all majors and backgrounds welcome. CS, business, pre-med, liberal arts — if you're interested in tech, you belong here.",
+      "Muslims and allies, all majors and backgrounds welcome. CS, business, pre-med, liberal arts. If you're interested in tech, you belong here.",
   },
 ];
 
@@ -123,7 +123,7 @@ export default function AboutPage() {
               </h1>
               <span className="block h-1 w-16 rounded-full bg-white/60 mb-6" />
               <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-lg">
-                A chapter of the Muslim Tech Collaborative — building a home for
+                A chapter of the Muslim Tech Collaborative, building a home for
                 Muslims in tech at OSU through projects, education, and career
                 development.
               </p>
@@ -151,7 +151,7 @@ export default function AboutPage() {
           <span className="inline-block h-1 w-16 rounded-full bg-osu-scarlet mb-8" />
           <p className="text-lg md:text-xl text-osu-gray-dark-40 leading-relaxed">
             Everything we build is in service of our community. We bring whatever
-            skills we have — code, design, research, strategy — to the masajid,
+            skills we have (code, design, research, strategy) to the masajid,
             nonprofits, and people already doing good, and channel them into
             meaningful innovation that leaves a real, lasting impact on the ummah.
             That&apos;s the work: technical excellence put to work for the people
@@ -185,7 +185,7 @@ export default function AboutPage() {
                 MTC at Ohio State is the local chapter of a national nonprofit
                 working to become the premier home for Muslims and allies in
                 technology. We connect Buckeyes with real consulting projects,
-                technical workshops, and professional development — while
+                technical workshops, and professional development, while
                 plugging members into a growing global network through{" "}
                 <a
                   href={NATIONAL_MTC_URL}
@@ -199,8 +199,8 @@ export default function AboutPage() {
               </p>
               <p className="text-lg text-osu-gray-dark-40 leading-relaxed">
                 The goal is simple: build accessible pathways into tech, do work
-                that creates real social impact, and give every member — whatever
-                their major — a community of like-minded Muslims to grow with.
+                that creates real social impact, and give every member, whatever
+                their major, a community of like-minded Muslims to grow with.
               </p>
             </div>
           </div>
@@ -274,7 +274,7 @@ export default function AboutPage() {
               </h3>
               <ul className="space-y-3 flex-1">
                 {[
-                  "National member perks — jobs, events, connections",
+                  "National member perks: jobs, events, connections",
                   "Luma Consulting project teams",
                   "On-campus workshops & events",
                   "A Muslim tech community at OSU",

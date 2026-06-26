@@ -20,7 +20,7 @@ const copy = {
     badge: "Luma for Partners",
     title: "Get work done.",
     accent: "Without the overhead.",
-    body: "OSU students build websites, tools, and research for businesses, nonprofits, and masjids — with MTC mentoring the whole way.",
+    body: "OSU students build websites, tools, and research for businesses, nonprofits, and masjids, with MTC mentoring the whole way.",
     primary: { label: "Start a project", href: "#form" },
     secondary: { label: "How it works", href: "#process" },
   },

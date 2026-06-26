@@ -129,7 +129,7 @@ export default function ProjectShowcase() {
                             key={item}
                             className="flex gap-2 text-sm text-osu-gray-dark-40 leading-relaxed"
                           >
-                            <span className="text-osu-scarlet flex-shrink-0">—</span>
+                            <span className="text-osu-scarlet flex-shrink-0">•</span>
                             <span>{item}</span>
                           </li>
                         ))}

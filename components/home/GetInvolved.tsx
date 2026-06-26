@@ -14,7 +14,7 @@ const cards = [
     title: "Join The Community",
     subtitle: "Students & Members",
     description:
-      "Apply through the MTC member application on mtc.so for jobs, events, connections, and member-only resources — then join our OSU Discord for chapter updates on events, Luma, and more.",
+      "Apply through the MTC member application on mtc.so for jobs, events, connections, and member-only resources. Then join our OSU Discord for chapter updates on events, Luma, and more.",
     href: NATIONAL_MTC_MEMBERS_URL,
     cta: `Apply on ${NATIONAL_MTC_LABEL}`,
     variant: "primary" as const,
@@ -68,7 +68,7 @@ export default function GetInvolved() {
           </h2>
           <span className="inline-block h-1 w-16 rounded-full bg-osu-scarlet mb-6" />
           <p className="text-xl text-osu-gray-dark-40 max-w-2xl mx-auto">
-            Become a member, partner on a project, or just reach out — there&apos;s
+            Become a member, partner on a project, or just reach out. There&apos;s
             more than one way to be part of MTC.
           </p>
         </motion.div>

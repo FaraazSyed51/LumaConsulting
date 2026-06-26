@@ -3,7 +3,7 @@ export type FaqItem = { q: string; a: string };
 export const studentFaqs: FaqItem[] = [
   {
     q: "Do I need to be a CS major?",
-    a: "No. We take students from every major — design, business, data, marketing, research, and more. What matters is that you want to do real work and follow through. We'll place you on a project that fits your skills.",
+    a: "No. We take students from every major: design, business, data, marketing, research, and more. What matters is that you want to do real work and follow through. We'll place you on a project that fits your skills.",
   },
   {
     q: "How does project ranking work?",
@@ -11,11 +11,11 @@ export const studentFaqs: FaqItem[] = [
   },
   {
     q: "What if I'm not sure which project to pick?",
-    a: "Rank what interests you most — put your top choice first and order the rest below it. When we open new Luma teams, we'll reach out using the contact info from your application.",
+    a: "Rank what interests you most. Put your top choice first and order the rest below it. When we open new Luma teams, we'll reach out using the contact info from your application.",
   },
   {
     q: "Is this paid?",
-    a: "It depends on the project. Some partners compensate students, some offer stipends, and some are volunteer. Either way you get real deliverables for your portfolio — we scope projects so the work is worth your time.",
+    a: "It depends on the project. Some partners compensate students, some offer stipends, and some are volunteer. Either way you get real deliverables for your portfolio. We scope projects so the work is worth your time.",
   },
   {
     q: "How many hours per week should I expect?",
@@ -23,14 +23,14 @@ export const studentFaqs: FaqItem[] = [
   },
   {
     q: "What happens after I apply?",
-    a: "We review applications as they come in. If you're a fit for a project, we'll reach out about next steps — usually a short conversation and then onboarding to the team.",
+    a: "We review applications as they come in. If you're a fit for a project, we'll reach out about next steps, usually a short conversation and then onboarding to the team.",
   },
 ];
 
 export const partnerFaqs: FaqItem[] = [
   {
     q: "Who can partner with Luma?",
-    a: "Businesses, nonprofits, masjids, and community organizations — local or not. If you have a technical project and a clear idea of what you need, reach out. We take on a limited number each semester so we can do them well.",
+    a: "Businesses, nonprofits, masjids, and community organizations, local or not. If you have a technical project and a clear idea of what you need, reach out. We take on a limited number each semester so we can do them well.",
   },
   {
     q: "What does it cost?",
@@ -42,11 +42,11 @@ export const partnerFaqs: FaqItem[] = [
   },
   {
     q: "What kind of work can students do?",
-    a: "Websites, tools, data and research, mapping, automation, strategy, and more. If it's not a typical tech project, still ask — we'll tell you honestly if it's a fit.",
+    a: "Websites, tools, data and research, mapping, automation, strategy, and more. If it's not a typical tech project, still ask. We'll tell you honestly if it's a fit.",
   },
   {
     q: "How involved do I need to be?",
-    a: "You should be available for kickoff, periodic check-ins, and feedback. MTC mentors the student team so you're not managing them alone — we stay involved through delivery.",
+    a: "You should be available for kickoff, periodic check-ins, and feedback. MTC mentors the student team so you're not managing them alone. We stay involved through delivery.",
   },
   {
     q: "What happens after I submit an inquiry?",

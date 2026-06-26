@@ -58,7 +58,7 @@ export default function About() {
           <p className="text-xl text-osu-gray-dark-40 max-w-3xl mx-auto mb-4">
             Luma is the student consulting arm of the Muslim Tech Collaborative
             at Ohio State. We pair OSU students with businesses, nonprofits, and
-            community orgs that need technical work done — and the students get
+            community orgs that need technical work done, and the students get
             experience that actually counts.
           </p>
           <span className="inline-block h-1 w-12 rounded-full bg-osu-scarlet mb-4" />

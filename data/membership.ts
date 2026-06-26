@@ -12,7 +12,7 @@ export const memberPerks: MemberPerk[] = [
   {
     title: "Job Opportunities",
     description:
-      "Access curated job postings, referrals, and offers shared with MTC members — from internships to full-time roles at Muslim-friendly employers and allies in tech.",
+      "Access curated job postings, referrals, and offers shared with MTC members, from internships to full-time roles at Muslim-friendly employers and allies in tech.",
   },
   {
     title: "Exclusive Events",
@@ -27,7 +27,7 @@ export const memberPerks: MemberPerk[] = [
   {
     title: "Real Projects",
     description:
-      "Work on consulting and community projects through Luma — websites, platforms, research, and tools for mosques, nonprofits, and local organizations.",
+      "Work on consulting and community projects through Luma: websites, platforms, research, and tools for mosques, nonprofits, and local organizations.",
   },
   {
     title: "Career Development",

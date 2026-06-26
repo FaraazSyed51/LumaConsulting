@@ -18,7 +18,7 @@ const stories = [
     icon: Code2,
     tag: "Luma Consulting",
     headline: "Real projects, built by students",
-    body: "Our student consulting team takes on real projects for mosques, nonprofits, and community organizations — websites, tools, research, and more. Students build skills through hands-on work and ship things people actually use.",
+    body: "Our student consulting team takes on real projects for mosques, nonprofits, and community organizations: websites, tools, research, and more. Students build skills through hands-on work and ship things people actually use.",
     href: "/luma",
     cta: "Explore Luma",
     span: "lg:col-span-7",
@@ -32,7 +32,7 @@ const stories = [
     icon: GraduationCap,
     tag: "Youth Education & Workshops",
     headline: "Technical Excellence",
-    body: "We teach tech to the youth and build practical skills through workshops, hackathons, and project-based learning — from coding fundamentals to AI/ML, led by industry professionals and experienced students.",
+    body: "We teach tech to the youth and build practical skills through workshops, hackathons, and project-based learning, from coding fundamentals to AI/ML, led by industry professionals and experienced students.",
     href: "/about",
     cta: "Learn More",
     span: "lg:col-span-5",
@@ -46,7 +46,7 @@ const stories = [
     icon: Briefcase,
     tag: "Career Preparation",
     headline: "Professional Development",
-    body: "We help members grow their careers through networking, resume reviews, interview prep, and conversations with recruiters — programming designed for Muslims in tech at every stage.",
+    body: "We help members grow their careers through networking, resume reviews, interview prep, and conversations with recruiters. Programming designed for Muslims in tech at every stage.",
     href: "/#why-join",
     cta: "Get Involved",
     span: "lg:col-span-4",
@@ -60,7 +60,7 @@ const stories = [
     icon: Users,
     tag: "Our Impact",
     headline: "A People-First Community",
-    body: "We're people-first. MTC connects members both spiritually and professionally — a tight-knit group that genuinely looks out for one another, on campus and beyond.",
+    body: "We're people-first. MTC connects members both spiritually and professionally: a tight-knit group that genuinely looks out for one another, on campus and beyond.",
     href: "/board",
     cta: "Meet Us",
     span: "lg:col-span-4",
@@ -109,8 +109,8 @@ export default function Pillars() {
             <span className="text-osu-scarlet">Impact</span>
           </h2>
           <p className="text-xl text-osu-gray-dark-40 leading-relaxed">
-            Most of what we do falls into three areas — real consulting projects,
-            hands-on learning, and career support — backed by a community that
+            Most of what we do falls into three areas: real consulting projects,
+            hands-on learning, and career support, backed by a community that
             looks out for each other.
           </p>
         </motion.div>

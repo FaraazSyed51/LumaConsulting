@@ -83,7 +83,7 @@ export default function Hero({ opacity }: HeroProps) {
           className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto"
         >
           Luma pairs Ohio State students with businesses, nonprofits, and masjids
-          that need real technical work done — websites, tools, research, and more.
+          that need real technical work done: websites, tools, research, and more.
           They get help they can actually use. We get experience that counts.
         </motion.p>
 

@@ -17,7 +17,7 @@ export default function Mission() {
           <motion.div
             ref={ref}
             initial={{ opacity: 0, x: -40 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            animate={isInView ? { opacity: 1, x: 0, y: 0 } : {}}
             transition={{ duration: 0.8 }}
           >
             <p className="text-osu-scarlet font-semibold uppercase tracking-widest text-sm mb-4">
@@ -35,9 +35,9 @@ export default function Mission() {
               and community organizations.
             </p>
             <p className="text-lg text-osu-gray-dark-40 leading-relaxed mb-8">
-              Whether you&apos;re in CS, business, pre-med, or liberal arts —
-              if you&apos;re interested in technology, there&apos;s a place for
-              you in MTC. Muslims of all academic backgrounds are welcome.
+              Whether you&apos;re in CS, business, pre-med, or liberal arts, if
+              you&apos;re interested in technology, there&apos;s a place for you
+              in MTC. Muslims of all academic backgrounds are welcome.
             </p>
             <Link
               href="/about"
@@ -49,7 +49,7 @@ export default function Mission() {
 
           <motion.div
             initial={{ opacity: 0, x: 40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            animate={isInView ? { opacity: 1, x: 0, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative overflow-hidden"
           >

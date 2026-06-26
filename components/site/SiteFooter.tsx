@@ -39,7 +39,7 @@ export default function SiteFooter() {
               </div>
             </div>
             <p className="text-osu-gray-light-40 max-w-md leading-relaxed">
-              Building a home for Muslims in tech at OSU — solving real problems,
+              Building a home for Muslims in tech at OSU, solving real problems,
               developing technical skills, and accelerating careers together.
             </p>
           </div>

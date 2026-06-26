@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     template: "%s | MTC at Ohio State",
   },
   description:
-    "Muslim Tech Collaborative at Ohio State — building a home for Muslims in tech through project-based learning, technical education, and professional development.",
+    "Muslim Tech Collaborative at Ohio State: building a home for Muslims in tech through project-based learning, technical education, and professional development.",
   keywords: [
     "MTC",
     "Muslim Tech Collaborative",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "MTC at Ohio State",
     description:
-      "A home for Muslims in tech at Ohio State — solve real problems, build skills, accelerate careers.",
+      "A home for Muslims in tech at Ohio State. Solve real problems, build skills, accelerate careers.",
     type: "website",
   },
 };
