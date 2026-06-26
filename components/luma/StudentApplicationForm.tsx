@@ -52,7 +52,7 @@ const ACCEPTED_RESUME_MIME_TYPES = new Set([
   "application/msword",
   "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
 ]);
-const MAX_RESUME_SIZE_BYTES = 5 * 1024 * 1024;
+const MAX_RESUME_SIZE_BYTES = 4 * 1024 * 1024;
 
 function isAcceptedResumeFile(file: File) {
   if (ACCEPTED_RESUME_MIME_TYPES.has(file.type)) return true;
@@ -298,7 +298,7 @@ export default function StudentApplicationForm() {
     }
 
     if (file.size > MAX_RESUME_SIZE_BYTES) {
-      setResumeError("Resume must be 5 MB or smaller.");
+      setResumeError("Resume must be 4 MB or smaller.");
       setResumeFile(null);
       e.target.value = "";
       return;
@@ -562,7 +562,7 @@ export default function StudentApplicationForm() {
                         <Upload className="w-8 h-8 text-osu-scarlet" />
                         <span className="text-sm font-semibold text-osu-gray-dark-80">Upload resume</span>
                         <span className="text-xs text-osu-gray-dark-40 text-center">
-                          PDF or Word (.doc, .docx) · max 5 MB
+                          PDF or Word (.doc, .docx) · max 4 MB
                         </span>
                       </label>
                     )}

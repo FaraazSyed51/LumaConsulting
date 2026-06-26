@@ -8,7 +8,7 @@ const ALLOWED_RESUME_MIME_TYPES = new Set([
   "application/octet-stream",
 ]);
 
-const MAX_RESUME_BYTES = 5 * 1024 * 1024;
+const MAX_RESUME_BYTES = 4 * 1024 * 1024;
 
 type StudentPayload = {
   applicantType: "student";
@@ -127,7 +127,7 @@ export async function POST(request: Request) {
 
   if (!isStudentPayload(data) && !isPartnerPayload(data)) {
     return NextResponse.json(
-      { error: "Please fill in all required fields and upload a valid resume (PDF or Word, max 5 MB)." },
+      { error: "Please fill in all required fields and upload a valid resume (PDF or Word, max 4 MB)." },
       { status: 400 }
     );
   }
