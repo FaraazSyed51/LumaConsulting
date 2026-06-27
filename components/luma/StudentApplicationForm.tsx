@@ -9,17 +9,16 @@ import {
   CheckCircle,
   AlertCircle,
   ChevronDown,
-  ChevronUp,
-  GripVertical,
   Calendar,
   Rocket,
   Upload,
   FileText,
   X,
+  Loader2,
 } from "lucide-react";
 import {
-  lumaProjects,
-  lumaProjectIds,
+  lumaOpenProjects,
+  lumaOpenProjectIds,
   projectIcon,
 } from "@/data/lumaProjects";
 
@@ -142,106 +141,6 @@ function SimpleDropdown({
   );
 }
 
-function ProjectRanking({
-  order,
-  onChange,
-}: {
-  order: string[];
-  onChange: (order: string[]) => void;
-}) {
-  const [dragIndex, setDragIndex] = useState<number | null>(null);
-  const [overIndex, setOverIndex] = useState<number | null>(null);
-
-  const reorder = (from: number, to: number) => {
-    if (from === to || from < 0 || to < 0 || from >= order.length || to >= order.length) {
-      return;
-    }
-    const next = [...order];
-    const [item] = next.splice(from, 1);
-    next.splice(to, 0, item);
-    onChange(next);
-  };
-
-  const move = (index: number, direction: -1 | 1) => {
-    reorder(index, index + direction);
-  };
-
-  return (
-    <div className="space-y-2">
-      {order.map((id, index) => {
-        const project = lumaProjects.find((p) => p.id === id);
-        if (!project) return null;
-
-        const isDragging = dragIndex === index;
-        const isDropTarget = overIndex === index && dragIndex !== null && dragIndex !== index;
-
-        return (
-          <div
-            key={id}
-            draggable
-            onDragStart={() => setDragIndex(index)}
-            onDragOver={(e) => {
-              e.preventDefault();
-              setOverIndex(index);
-            }}
-            onDrop={(e) => {
-              e.preventDefault();
-              if (dragIndex !== null) reorder(dragIndex, index);
-              setDragIndex(null);
-              setOverIndex(null);
-            }}
-            onDragEnd={() => {
-              setDragIndex(null);
-              setOverIndex(null);
-            }}
-            className={`flex items-center gap-3 p-4 rounded-xl border bg-white transition-all ${
-              isDragging
-                ? "opacity-50 border-osu-scarlet/40 shadow-md"
-                : isDropTarget
-                  ? "border-osu-scarlet ring-2 ring-osu-scarlet/30"
-                  : "border-osu-gray-light-40"
-            }`}
-          >
-            <span className="flex-shrink-0 w-8 h-8 rounded-full bg-osu-scarlet text-white text-sm font-bold flex items-center justify-center">
-              {index + 1}
-            </span>
-            <GripVertical className="w-5 h-5 text-osu-gray flex-shrink-0 cursor-grab active:cursor-grabbing" />
-            <div className="flex-1 min-w-0">
-              <p className="font-semibold text-osu-gray-dark-80 text-sm truncate">
-                {project.title}
-              </p>
-              <p className="text-xs text-osu-gray-dark-40 truncate">{project.client}</p>
-            </div>
-            <div className="flex flex-col gap-0.5">
-              <button
-                type="button"
-                onClick={() => move(index, -1)}
-                disabled={index === 0}
-                className="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center rounded hover:bg-osu-gray-light-80 disabled:opacity-30"
-                aria-label="Move up"
-              >
-                <ChevronUp className="w-4 h-4" />
-              </button>
-              <button
-                type="button"
-                onClick={() => move(index, 1)}
-                disabled={index === order.length - 1}
-                className="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center rounded hover:bg-osu-gray-light-80 disabled:opacity-30"
-                aria-label="Move down"
-              >
-                <ChevronDown className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-        );
-      })}
-      <p className="text-xs text-osu-gray-dark-40 pt-1">
-        #1 is your top choice. Drag rows or use the arrows to reorder.
-      </p>
-    </div>
-  );
-}
-
 const inputClass =
   "w-full px-4 py-3.5 rounded-xl border border-osu-gray-light-40 bg-white placeholder:text-osu-gray focus:outline-none focus:ring-2 focus:ring-osu-scarlet shadow-sm";
 
@@ -249,8 +148,7 @@ export default function StudentApplicationForm() {
   const ref = useRef(null);
   const resumeInputRef = useRef<HTMLInputElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
-  const [expandedBrief, setExpandedBrief] = useState<string | null>(null);
-  const [rankings, setRankings] = useState<string[]>([...lumaProjectIds]);
+  const [expandedBrief, setExpandedBrief] = useState<string | null>(lumaOpenProjectIds[0] ?? null);
   const [resumeFile, setResumeFile] = useState<File | null>(null);
   const [resumeError, setResumeError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
@@ -274,8 +172,7 @@ export default function StudentApplicationForm() {
 
   useEffect(() => {
     const highlight = sessionStorage.getItem("luma-highlight-project");
-    if (highlight && lumaProjectIds.includes(highlight)) {
-      setRankings([highlight, ...lumaProjectIds.filter((id) => id !== highlight)]);
+    if (highlight && lumaOpenProjectIds.includes(highlight)) {
       setExpandedBrief(highlight);
       sessionStorage.removeItem("luma-highlight-project");
     }
@@ -335,7 +232,7 @@ export default function StudentApplicationForm() {
         body: JSON.stringify({
           applicantType: "student",
           ...formData,
-          projectRankings: rankings,
+          projectRankings: [...lumaOpenProjectIds],
           resumeFileName: resumeFile.name,
           resumeMimeType: resumeFile.type || "application/octet-stream",
           resumeBase64,
@@ -362,7 +259,6 @@ export default function StudentApplicationForm() {
         additionalNotes: "",
       });
       clearResume();
-      setRankings([...lumaProjectIds]);
       setTimeout(() => setSubmitted(false), 6000);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to submit.");
@@ -384,8 +280,8 @@ export default function StudentApplicationForm() {
             Student Application
           </h2>
           <p className="text-lg text-osu-gray-dark-40 max-w-2xl mx-auto">
-            One application for all open projects. Read each brief, fill out your
-            info, then rank your preferences at the bottom.
+            Apply for the Wahed iWaqf Platform team. Read the project brief,
+            fill out your info, and submit when you&apos;re ready.
           </p>
         </motion.div>
 
@@ -393,8 +289,19 @@ export default function StudentApplicationForm() {
           initial={{ opacity: 0, y: 32 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.1 }}
-          className="bg-white rounded-2xl shadow-md border border-osu-gray-light-40 border-t-4 border-t-osu-scarlet overflow-hidden"
+          className="relative bg-white rounded-2xl shadow-md border border-osu-gray-light-40 border-t-4 border-t-osu-scarlet overflow-hidden"
         >
+          {submitting && (
+            <div
+              className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-4 bg-white/90 backdrop-blur-sm"
+              aria-live="polite"
+              aria-busy="true"
+            >
+              <Loader2 className="w-12 h-12 text-osu-scarlet animate-spin" />
+              <p className="text-osu-gray-dark-80 font-semibold">Submitting your application…</p>
+              <p className="text-sm text-osu-gray-dark-40">This may take a few seconds.</p>
+            </div>
+          )}
           {submitted ? (
             <div className="text-center py-16 px-8">
               <CheckCircle className="w-20 h-20 text-osu-scarlet mx-auto mb-6" />
@@ -412,12 +319,12 @@ export default function StudentApplicationForm() {
 
               {/* Project briefs */}
               <div className="p-6 md:p-8">
-                <h3 className="text-lg font-bold text-osu-gray-dark-80 mb-1">Project briefs</h3>
+                <h3 className="text-lg font-bold text-osu-gray-dark-80 mb-1">Project brief</h3>
                 <p className="text-sm text-osu-gray-dark-40 mb-5">
-                  Review each project before you apply. Content matches our live openings.
+                  Review the open project before you apply.
                 </p>
                 <div className="space-y-3">
-                  {lumaProjects.map((project) => {
+                  {lumaOpenProjects.map((project) => {
                     const isOpen = expandedBrief === project.id;
                     return (
                       <div
@@ -589,15 +496,6 @@ export default function StudentApplicationForm() {
                 </div>
               </div>
 
-              {/* Rankings */}
-              <div className="p-6 md:p-8 space-y-4">
-                <h3 className="text-lg font-bold text-osu-gray-dark-80">Rank your project preferences *</h3>
-                <p className="text-sm text-osu-gray-dark-40">
-                  Put your top choice first. We use this to place you on the best-fit team.
-                </p>
-                <ProjectRanking order={rankings} onChange={setRankings} />
-              </div>
-
               <div className="p-6 md:p-8 pt-0 space-y-4">
                 <p className="text-xs text-osu-gray-dark-40 text-center leading-relaxed">
                   By submitting, you agree we may contact you about this application and future Luma
@@ -606,10 +504,19 @@ export default function StudentApplicationForm() {
                 <button
                   type="submit"
                   disabled={submitting || !formData.year || !formData.graduatingYear || !formData.hoursPerWeek || !resumeFile}
-                  className="w-full px-8 py-4 bg-osu-scarlet text-white rounded-lg font-semibold text-lg shadow-lg hover:bg-osu-scarlet-dark-40 transition-all flex items-center justify-center gap-2 disabled:opacity-60"
+                  className="w-full px-8 py-4 bg-osu-scarlet text-white rounded-lg font-semibold text-lg shadow-lg hover:bg-osu-scarlet-dark-40 transition-all flex items-center justify-center gap-2 disabled:opacity-60 min-h-[56px]"
                 >
-                  {submitting ? "Submitting..." : "Submit application"}
-                  {!submitting && <Send className="w-5 h-5" />}
+                  {submitting ? (
+                    <>
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      Submitting…
+                    </>
+                  ) : (
+                    <>
+                      Submit application
+                      <Send className="w-5 h-5" />
+                    </>
+                  )}
                 </button>
                 <p className="text-xs text-osu-gray-dark-40 text-center mt-3">
                   Questions? Email{" "}

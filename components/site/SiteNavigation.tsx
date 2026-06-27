@@ -140,13 +140,13 @@ export default function SiteNavigation({
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 w-full max-w-[100vw] transition-all duration-300 ${
         useTransparent
           ? "bg-transparent"
           : "bg-white/95 backdrop-blur-md shadow-sm border-b border-osu-gray-light-40"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 safe-area-x w-full min-w-0">
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center space-x-3 group">
             <motion.div whileHover={{ scale: 1.05 }} className="w-11 h-11 rounded-full overflow-hidden flex-shrink-0">
@@ -208,7 +208,7 @@ export default function SiteNavigation({
               Meet Us
             </Link>
             <Link
-              href="/#why-join"
+              href="/#ready-to-join"
               className="ml-4 px-6 py-2.5 bg-osu-scarlet text-white rounded-lg font-semibold hover:bg-osu-scarlet-dark-40 transition-colors shadow-md hover:shadow-lg"
             >
               Join MTC
@@ -293,7 +293,7 @@ export default function SiteNavigation({
                 Meet Us
               </Link>
               <Link
-                href="/#why-join"
+                href="/#ready-to-join"
                 className="block w-full mt-2 px-6 py-3 bg-osu-scarlet text-white rounded-lg font-semibold text-center"
               >
                 Join MTC
@@ -350,7 +350,7 @@ export function LumaSubNav({ variant = "student" }: { variant?: "student" | "par
 
   return (
     <div className="sticky top-20 z-40 bg-white/95 backdrop-blur-md border-b border-osu-gray-light-40 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 safe-area-x w-full min-w-0">
         <div className="flex flex-col gap-2 py-2 sm:py-3">
           <div className="flex items-center justify-between sm:hidden">
             <span className="text-sm font-bold text-osu-scarlet">

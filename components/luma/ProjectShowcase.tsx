@@ -28,14 +28,15 @@ export default function ProjectShowcase() {
             Open project teams
           </h2>
           <p className="text-lg text-osu-gray-dark-40 max-w-2xl mx-auto">
-            Live partnerships with real deliverables. Read each brief, then rank
-            your preferences when you apply.
+            Live partnerships with real deliverables. One team is open now; more
+            projects are coming soon.
           </p>
         </motion.div>
 
         <div className="space-y-6">
           {lumaProjects.map((project, index) => {
             const Icon = project.icon;
+            const isComingSoon = project.comingSoon === true;
 
             return (
               <motion.article
@@ -59,6 +60,11 @@ export default function ProjectShowcase() {
                         <h3 className="text-2xl font-bold text-osu-gray-dark-80 leading-tight">
                           {project.title}
                         </h3>
+                        {isComingSoon && (
+                          <span className="inline-flex mt-2 px-2.5 py-1 text-xs font-semibold rounded-md bg-osu-gray-light-80 text-osu-gray-dark-60 uppercase tracking-wide">
+                            Coming soon
+                          </span>
+                        )}
                       </div>
                     </div>
 
@@ -171,16 +177,22 @@ export default function ProjectShowcase() {
                       </div>
                     </div>
 
-                    <Link
-                      href="/luma/students#form"
-                      onClick={() => {
-                        sessionStorage.setItem("luma-highlight-project", project.id);
-                      }}
-                      className="flex-shrink-0 inline-flex items-center justify-center gap-2 px-5 py-3 bg-osu-scarlet text-white font-semibold rounded-xl hover:bg-osu-scarlet-dark-40 transition-colors"
-                    >
-                      Apply to this project
-                      <ArrowRight className="w-4 h-4" />
-                    </Link>
+                    {isComingSoon ? (
+                      <span className="flex-shrink-0 inline-flex items-center justify-center px-5 py-3 bg-osu-gray-light-80 text-osu-gray-dark-40 font-semibold rounded-xl border border-osu-gray-light-40">
+                        Applications opening soon
+                      </span>
+                    ) : (
+                      <Link
+                        href="/luma/students#form"
+                        onClick={() => {
+                          sessionStorage.setItem("luma-highlight-project", project.id);
+                        }}
+                        className="flex-shrink-0 inline-flex items-center justify-center gap-2 px-5 py-3 bg-osu-scarlet text-white font-semibold rounded-xl hover:bg-osu-scarlet-dark-40 transition-colors"
+                      >
+                        Apply to this project
+                        <ArrowRight className="w-4 h-4" />
+                      </Link>
+                    )}
                   </div>
                 </div>
               </motion.article>

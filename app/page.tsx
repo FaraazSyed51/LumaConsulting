@@ -9,7 +9,7 @@ import GetInvolved from "@/components/home/GetInvolved";
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen page-shell">
       <SiteNavigation transparent />
       <HomeHero />
       <Mission />

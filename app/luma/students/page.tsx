@@ -10,7 +10,7 @@ import StudentApplicationForm from "@/components/luma/StudentApplicationForm";
 
 export default function LumaStudentsPage() {
   return (
-    <main className="min-h-screen luma-page pt-20">
+    <main className="min-h-screen luma-page page-shell pt-20">
       <SiteNavigation />
       <LumaSubNav variant="student" />
       <LumaHero variant="student" />

@@ -11,7 +11,7 @@ import PartnerApplicationForm from "@/components/luma/PartnerApplicationForm";
 
 export default function LumaPartnersPage() {
   return (
-    <main className="min-h-screen luma-page pt-20">
+    <main className="min-h-screen luma-page page-shell pt-20">
       <SiteNavigation />
       <LumaSubNav variant="partner" />
       <LumaHero variant="partner" />

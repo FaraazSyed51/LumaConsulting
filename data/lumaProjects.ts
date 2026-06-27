@@ -31,13 +31,15 @@ export type LumaProject = {
   howWeHelp: string[];
   tags: string[];
   application: LumaApplicationDetails;
+  /** Shown on the site but not open for applications yet */
+  comingSoon?: boolean;
 };
 
 export const lumaProjects: LumaProject[] = [
   {
     id: "iwaqf",
     icon: Landmark,
-    title: "iWaqf × Wahed",
+    title: "Wahed iWaqf Platform",
     client: "US launch · Partnership with Wahed Invest",
     partner: {
       name: "Wahed Invest",
@@ -98,6 +100,7 @@ export const lumaProjects: LumaProject[] = [
       "Design access controls and data practices that keep sensitive community info protected",
     ],
     tags: ["Web platform", "Mapping", "Community", "Advocacy"],
+    comingSoon: true,
     application: {
       intro:
         "Work with Shahed Amanullah on community infrastructure for Ohio Muslims, rebuilding the 40 Homes volunteer coordination platform and an internal mapping layer used for organizing and advocacy with officials.",
@@ -120,6 +123,10 @@ export const lumaProjects: LumaProject[] = [
 ];
 
 export const lumaProjectIds = lumaProjects.map((p) => p.id);
+
+export const lumaOpenProjects = lumaProjects.filter((p) => !p.comingSoon);
+
+export const lumaOpenProjectIds = lumaOpenProjects.map((p) => p.id);
 
 export function getProjectById(id: string) {
   return lumaProjects.find((p) => p.id === id);

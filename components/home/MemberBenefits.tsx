@@ -13,12 +13,19 @@ import {
   Lock,
   ExternalLink,
   ArrowRight,
+  Instagram,
+  Linkedin,
 } from "lucide-react";
 import {
   memberPerks,
   NATIONAL_MTC_MEMBERS_URL,
 } from "@/data/membership";
-import { NATIONAL_MTC_LABEL, MTC_OSU_DISCORD_URL } from "@/data/site";
+import {
+  NATIONAL_MTC_LABEL,
+  MTC_OSU_DISCORD_URL,
+  MTC_OSU_INSTAGRAM_URL,
+  MTC_OSU_LINKEDIN_URL,
+} from "@/data/site";
 
 const perkIcons = [Briefcase, Calendar, Users, Code2, TrendingUp, Lock];
 
@@ -85,10 +92,11 @@ export default function MemberBenefits() {
         </div>
 
         <motion.div
+          id="ready-to-join"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-osu-scarlet to-osu-scarlet-dark-40 p-8 md:p-12 text-white shadow-xl"
+          className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-osu-scarlet to-osu-scarlet-dark-40 p-8 md:p-12 text-white shadow-xl scroll-mt-28"
         >
           <div className="absolute inset-0 opacity-10">
             <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
@@ -122,12 +130,12 @@ export default function MemberBenefits() {
                 our on-campus Muslim tech community.
               </p>
             </div>
-            <div className="flex flex-col sm:flex-row md:flex-col gap-4">
+            <div className="flex flex-col gap-3">
               <a
                 href={NATIONAL_MTC_MEMBERS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-osu-scarlet rounded-xl font-semibold text-lg hover:bg-osu-gray-light-90 transition-colors shadow-lg"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-osu-scarlet rounded-xl font-semibold text-lg hover:bg-osu-gray-light-90 transition-colors shadow-lg min-h-[56px]"
               >
                 Apply on {NATIONAL_MTC_LABEL}
                 <ExternalLink className="w-5 h-5" />
@@ -136,18 +144,38 @@ export default function MemberBenefits() {
                 href={MTC_OSU_DISCORD_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 border-2 border-white/60 text-white rounded-xl font-semibold text-lg hover:bg-white/20 transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 border-2 border-white/60 text-white rounded-xl font-semibold text-lg hover:bg-white/20 transition-colors min-h-[56px]"
               >
                 Join Discord
                 <ExternalLink className="w-5 h-5" />
               </a>
               <Link
                 href="/luma/students#form"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 border-2 border-white/60 text-white rounded-xl font-semibold text-lg hover:bg-white/20 transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 border-2 border-white/60 text-white rounded-xl font-semibold text-lg hover:bg-white/20 transition-colors min-h-[56px]"
               >
                 Join the OSU Chapter
                 <ArrowRight className="w-5 h-5" />
               </Link>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                <a
+                  href={MTC_OSU_INSTAGRAM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white/10 border border-white/50 text-white rounded-xl font-semibold hover:bg-white/20 transition-colors min-h-[52px]"
+                >
+                  <Instagram className="w-5 h-5" />
+                  Follow on Instagram
+                </a>
+                <a
+                  href={MTC_OSU_LINKEDIN_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white/10 border border-white/50 text-white rounded-xl font-semibold hover:bg-white/20 transition-colors min-h-[52px]"
+                >
+                  <Linkedin className="w-5 h-5" />
+                  Follow on LinkedIn
+                </a>
+              </div>
             </div>
           </div>
         </motion.div>

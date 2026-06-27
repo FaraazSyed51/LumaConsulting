@@ -89,7 +89,7 @@ export default function AboutPage() {
   const valuesInView = useInView(valuesRef, { once: true, margin: "-80px" });
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen page-shell bg-white">
       <SiteNavigation />
 
       {/* Hero — split image + intro */}

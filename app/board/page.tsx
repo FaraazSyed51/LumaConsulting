@@ -7,7 +7,7 @@ import BoardGrid from "@/components/board/BoardGrid";
 
 export default function BoardPage() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen page-shell">
       <SiteNavigation />
 
       <section className="pt-32 pb-16 gradient-scarlet relative overflow-hidden">

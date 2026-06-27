@@ -11,8 +11,8 @@ export default function Mission() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="mission" className="py-28 bg-section-gray">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="mission" className="py-28 bg-section-gray overflow-x-clip">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full min-w-0">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
             ref={ref}
@@ -62,8 +62,8 @@ export default function Mission() {
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
-            <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-osu-gray-light-60 rounded-2xl -z-10" />
-            <div className="absolute -top-6 -right-6 w-24 h-24 bg-osu-scarlet/20 rounded-full -z-10" />
+            <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-osu-gray-light-60 rounded-2xl -z-10 hidden sm:block" />
+            <div className="absolute -top-6 -right-6 w-24 h-24 bg-osu-scarlet/20 rounded-full -z-10 hidden sm:block" />
           </motion.div>
         </div>
       </div>

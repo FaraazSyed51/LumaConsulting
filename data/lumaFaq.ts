@@ -6,12 +6,8 @@ export const studentFaqs: FaqItem[] = [
     a: "No. We take students from every major: design, business, data, marketing, research, and more. What matters is that you want to do real work and follow through. We'll place you on a project that fits your skills.",
   },
   {
-    q: "How does project ranking work?",
-    a: "In the application you'll rank the open projects in order of preference. We use that to place you on the best-fit team. If you're set on one project, put it first.",
-  },
-  {
-    q: "What if I'm not sure which project to pick?",
-    a: "Rank what interests you most. Put your top choice first and order the rest below it. When we open new Luma teams, we'll reach out using the contact info from your application.",
+    q: "Which projects are open right now?",
+    a: "The Wahed iWaqf Platform team is accepting applications now. Other projects, like the Ohio Muslim Community Platform, are listed on the site as coming soon. When new teams open, we'll reach out using the contact info from your application.",
   },
   {
     q: "Is this paid?",

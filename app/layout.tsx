@@ -18,6 +18,7 @@ const spaceGrotesk = Space_Grotesk({
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
+  viewportFit: "cover",
   themeColor: "#BA0C2F",
 };
 
@@ -52,7 +53,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${plusJakarta.variable} ${spaceGrotesk.variable}`}>
-      <body className="font-sans overflow-x-hidden">
+      <body className="font-sans w-full max-w-[100vw] overflow-x-clip antialiased">
         {children}
         <Analytics />
       </body>

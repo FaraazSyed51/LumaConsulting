@@ -164,7 +164,7 @@ export default function HomeHero() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <Link
-            href="#why-join"
+            href="#ready-to-join"
             className="px-8 py-4 bg-white text-osu-scarlet rounded-xl font-semibold text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all"
           >
             Become a Member

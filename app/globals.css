@@ -8,6 +8,11 @@
   }
   body {
     @apply bg-white text-osu-gray-dark-80 antialiased;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+    min-height: 100vh;
+    min-height: 100dvh;
     font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI',
       'Roboto', sans-serif;
   }
@@ -75,13 +80,27 @@
     @apply text-osu-gray-dark-40;
   }
 
-  .text-muted {
-    @apply text-osu-gray;
+  .page-shell {
+    @apply w-full max-w-[100vw] overflow-x-clip min-w-0;
+  }
+
+  .safe-area-x {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+
+  .ios-tap {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
   }
 }
 
 html {
   scroll-behavior: smooth;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
   /* Keep anchored sections clear of the fixed navigation */
   scroll-padding-top: 6rem;
 }
