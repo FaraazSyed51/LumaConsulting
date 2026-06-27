@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
@@ -56,6 +57,7 @@ export default function RootLayout({
       <body className="font-sans w-full max-w-[100vw] overflow-x-clip antialiased">
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
