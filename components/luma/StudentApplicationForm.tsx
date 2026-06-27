@@ -418,10 +418,10 @@ export default function StudentApplicationForm() {
                           {project.partner.logo && (
                             <Image
                               src={project.partner.logo}
-                              alt=""
-                              width={72}
-                              height={24}
-                              className="h-5 w-auto object-contain hidden sm:block"
+                              alt={project.partner.logoAlt ?? project.partner.name}
+                              width={120}
+                              height={40}
+                              className="h-7 sm:h-9 w-auto object-contain flex-shrink-0"
                             />
                           )}
                           <ChevronDown className={`w-5 h-5 text-osu-gray flex-shrink-0 transition-transform ${isOpen ? "rotate-180" : ""}`} />
