@@ -29,6 +29,8 @@ export type LumaProject = {
   significance: string;
   /** What students will actually build / work on */
   howWeHelp: string[];
+  /** Experience and benefits students gain on this team */
+  experienceBenefits: string[];
   tags: string[];
   application: LumaApplicationDetails;
   /** Shown on the site but not open for applications yet */
@@ -58,6 +60,14 @@ export const lumaProjects: LumaProject[] = [
       "Instrument activation, contribution size, and repeat-use metrics for the first US cohort",
       "Support shareable features (legacy cards, gift-a-waqf) to help the product spread organically",
     ],
+    experienceBenefits: [
+      "Connect with Wahed's CTO, CEO, investors, and engineers throughout the build",
+      "Real exposure to a global Muslim fintech company and a path to future opportunities at Wahed",
+      "Hands-on learning across product, engineering, and Shariah-compliant fintech",
+      "Ship features for a live US launch you can walk through in interviews",
+      "Work on a cross-functional student team with MTC mentorship and structure",
+      "Build a portfolio piece tied to a real partner, real users, and real impact",
+    ],
     tags: ["Fintech", "Waqf", "US launch", "Mobile app"],
     application: {
       intro:
@@ -75,7 +85,7 @@ export const lumaProjects: LumaProject[] = [
         "Full-stack engineering",
         "Financial technology (or willingness to learn)",
       ],
-      deadline: "Tuesday, June 30",
+      deadline: "Wednesday, July 1",
       startDate: "Immediately after selection",
       contactEmail: "ohiostatemtc@gmail.com",
     },
@@ -98,6 +108,14 @@ export const lumaProjects: LumaProject[] = [
       "Structure data on communities, masajid, nonprofits, and campaigns across Ohio",
       "Build interactive maps and dashboards for organizing and meetings with officials",
       "Design access controls and data practices that keep sensitive community info protected",
+    ],
+    experienceBenefits: [
+      "Work with Shahed Amanullah, founder of zabhiah.com and a leading Muslim tech entrepreneur",
+      "Direct impact on masajid, nonprofits, and community orgs across Ohio",
+      "Blend product, data, mapping, and research skills on civic tech that matters",
+      "Learn how to build responsibly when community data is sensitive",
+      "Portfolio work on organizing infrastructure used for real advocacy",
+      "Exposure to stakeholders, org leaders, and the people your tools will serve",
     ],
     tags: ["Web platform", "Mapping", "Community", "Advocacy"],
     comingSoon: true,

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "framer-motion";
@@ -15,6 +16,7 @@ import {
   FileText,
   X,
   Loader2,
+  Sparkles,
 } from "lucide-react";
 import {
   lumaOpenProjects,
@@ -44,6 +46,13 @@ const GRAD_YEAR_OPTIONS = Array.from({ length: 8 }, (_, i) => {
   const year = String(GRAD_YEAR_START + i);
   return { value: year, label: year };
 });
+
+const AVAILABILITY_OPTIONS = [
+  { value: "as-long-as-needed", label: "As long as needed" },
+  { value: "specific-date", label: "Until a specific date" },
+];
+
+const LUMA_SCROLL_OFFSET = 132;
 
 const ACCEPTED_RESUME_EXTENSIONS = ".pdf,.doc,.docx";
 const ACCEPTED_RESUME_MIME_TYPES = new Set([
@@ -146,11 +155,16 @@ const inputClass =
 
 export default function StudentApplicationForm() {
   const ref = useRef(null);
+  const formCardRef = useRef<HTMLDivElement>(null);
+  const submitButtonRef = useRef<HTMLButtonElement>(null);
   const resumeInputRef = useRef<HTMLInputElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const [mounted, setMounted] = useState(false);
   const [expandedBrief, setExpandedBrief] = useState<string | null>(lumaOpenProjectIds[0] ?? null);
   const [resumeFile, setResumeFile] = useState<File | null>(null);
   const [resumeError, setResumeError] = useState<string | null>(null);
+  const [availabilityType, setAvailabilityType] = useState("");
+  const [availableUntilDate, setAvailableUntilDate] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -161,7 +175,6 @@ export default function StudentApplicationForm() {
     linkedin: "",
     github: "",
     hoursPerWeek: "",
-    availableUntil: "",
     interest: "",
     skills: "",
     additionalNotes: "",
@@ -169,6 +182,19 @@ export default function StudentApplicationForm() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!submitting) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [submitting]);
 
   useEffect(() => {
     const highlight = sessionStorage.getItem("luma-highlight-project");
@@ -210,18 +236,49 @@ export default function StudentApplicationForm() {
     if (resumeInputRef.current) resumeInputRef.current.value = "";
   };
 
+  const scrollSubmitIntoView = () => {
+    submitButtonRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    const formEl = document.getElementById("form");
+    if (formEl) {
+      const top = formEl.getBoundingClientRect().top + window.scrollY - LUMA_SCROLL_OFFSET;
+      window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+    }
+  };
+
+  const resolveAvailableUntil = () => {
+    if (availabilityType === "as-long-as-needed") return "As long as needed";
+    if (availabilityType === "specific-date") return availableUntilDate;
+    return "";
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
     if (!formData.year || !formData.graduatingYear || !formData.hoursPerWeek) {
       setError("Please select your year, graduating year, and hours per week.");
+      scrollSubmitIntoView();
+      return;
+    }
+    if (!availabilityType) {
+      setError("Please select how long you're available.");
+      scrollSubmitIntoView();
+      return;
+    }
+    if (availabilityType === "specific-date" && !availableUntilDate) {
+      setError("Please pick the date you're available until.");
+      scrollSubmitIntoView();
       return;
     }
     if (!resumeFile) {
       setError("Please upload your resume (PDF or Word).");
+      scrollSubmitIntoView();
       return;
     }
+
     setSubmitting(true);
+    scrollSubmitIntoView();
+
+    const availableUntil = resolveAvailableUntil();
 
     try {
       const resumeBase64 = await readFileAsBase64(resumeFile);
@@ -232,6 +289,7 @@ export default function StudentApplicationForm() {
         body: JSON.stringify({
           applicantType: "student",
           ...formData,
+          availableUntil,
           projectRankings: [...lumaOpenProjectIds],
           resumeFileName: resumeFile.name,
           resumeMimeType: resumeFile.type || "application/octet-stream",
@@ -243,6 +301,7 @@ export default function StudentApplicationForm() {
       if (!res.ok) throw new Error(data.error ?? "Something went wrong.");
 
       setSubmitted(true);
+      scrollSubmitIntoView();
       setFormData({
         name: "",
         email: "",
@@ -253,11 +312,12 @@ export default function StudentApplicationForm() {
         linkedin: "",
         github: "",
         hoursPerWeek: "",
-        availableUntil: "",
         interest: "",
         skills: "",
         additionalNotes: "",
       });
+      setAvailabilityType("");
+      setAvailableUntilDate("");
       clearResume();
       setTimeout(() => setSubmitted(false), 6000);
     } catch (err) {
@@ -269,6 +329,26 @@ export default function StudentApplicationForm() {
 
   return (
     <section id="form" className="py-24 bg-section-muted">
+      {submitting &&
+        mounted &&
+        createPortal(
+          <div
+            className="fixed inset-0 z-[200] flex flex-col items-center justify-center gap-4 bg-white/95 backdrop-blur-sm px-6 safe-area-x"
+            style={{ paddingTop: "env(safe-area-inset-top)", paddingBottom: "env(safe-area-inset-bottom)" }}
+            aria-live="polite"
+            aria-busy="true"
+            role="status"
+          >
+            <Loader2 className="w-14 h-14 text-osu-scarlet animate-spin" />
+            <p className="text-osu-gray-dark-80 font-semibold text-lg text-center">
+              Submitting your application…
+            </p>
+            <p className="text-sm text-osu-gray-dark-40 text-center">
+              Please keep this page open. This may take a few seconds.
+            </p>
+          </div>,
+          document.body
+        )}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -286,22 +366,12 @@ export default function StudentApplicationForm() {
         </motion.div>
 
         <motion.div
+          ref={formCardRef}
           initial={{ opacity: 0, y: 32 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.1 }}
           className="relative bg-white rounded-2xl shadow-md border border-osu-gray-light-40 border-t-4 border-t-osu-scarlet overflow-hidden"
         >
-          {submitting && (
-            <div
-              className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-4 bg-white/90 backdrop-blur-sm"
-              aria-live="polite"
-              aria-busy="true"
-            >
-              <Loader2 className="w-12 h-12 text-osu-scarlet animate-spin" />
-              <p className="text-osu-gray-dark-80 font-semibold">Submitting your application…</p>
-              <p className="text-sm text-osu-gray-dark-40">This may take a few seconds.</p>
-            </div>
-          )}
           {submitted ? (
             <div className="text-center py-16 px-8">
               <CheckCircle className="w-20 h-20 text-osu-scarlet mx-auto mb-6" />
@@ -362,11 +432,25 @@ export default function StudentApplicationForm() {
                             <ul className="space-y-1">
                               {project.application.highlights.map((h) => (
                                 <li key={h} className="flex gap-2">
-                                  <span className="text-osu-scarlet">—</span>
+                                  <span className="text-osu-scarlet">•</span>
                                   {h}
                                 </li>
                               ))}
                             </ul>
+                            <div className="pt-2">
+                              <p className="flex items-center gap-1.5 text-xs font-bold text-osu-gray-dark-80 uppercase tracking-wide mb-2">
+                                <Sparkles className="w-3.5 h-3.5 text-osu-scarlet" />
+                                Experience & benefits you&apos;ll gain
+                              </p>
+                              <ul className="space-y-1">
+                                {project.experienceBenefits.map((b) => (
+                                  <li key={b} className="flex gap-2">
+                                    <span className="text-osu-scarlet">•</span>
+                                    {b}
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
                             <div className="flex flex-wrap gap-3 text-xs font-medium">
                               {project.application.deadline && (
                                 <span className="inline-flex items-center gap-1 text-osu-gray-dark-60">
@@ -421,9 +505,23 @@ export default function StudentApplicationForm() {
                     <label className="block text-sm font-semibold text-osu-gray-dark-60 mb-2">Hours per week *</label>
                     <SimpleDropdown value={formData.hoursPerWeek} onChange={(v) => setFormData({ ...formData, hoursPerWeek: v })} options={HOURS_OPTIONS} placeholder="Select hours" />
                   </div>
-                  <div className="sm:col-span-2">
+                  <div className="sm:col-span-2 space-y-3">
                     <label className="block text-sm font-semibold text-osu-gray-dark-60 mb-2">Available until *</label>
-                    <input type="date" required value={formData.availableUntil} onChange={(e) => setFormData({ ...formData, availableUntil: e.target.value })} className={inputClass} />
+                    <SimpleDropdown
+                      value={availabilityType}
+                      onChange={setAvailabilityType}
+                      options={AVAILABILITY_OPTIONS}
+                      placeholder="Select availability"
+                    />
+                    {availabilityType === "specific-date" && (
+                      <input
+                        type="date"
+                        required
+                        value={availableUntilDate}
+                        onChange={(e) => setAvailableUntilDate(e.target.value)}
+                        className={inputClass}
+                      />
+                    )}
                   </div>
                   <div>
                     <label className="block text-sm font-semibold text-osu-gray-dark-60 mb-2">LinkedIn</label>
@@ -502,8 +600,17 @@ export default function StudentApplicationForm() {
                   projects. No need to re-apply when new teams open.
                 </p>
                 <button
+                  ref={submitButtonRef}
                   type="submit"
-                  disabled={submitting || !formData.year || !formData.graduatingYear || !formData.hoursPerWeek || !resumeFile}
+                  disabled={
+                    submitting ||
+                    !formData.year ||
+                    !formData.graduatingYear ||
+                    !formData.hoursPerWeek ||
+                    !availabilityType ||
+                    (availabilityType === "specific-date" && !availableUntilDate) ||
+                    !resumeFile
+                  }
                   className="w-full px-8 py-4 bg-osu-scarlet text-white rounded-lg font-semibold text-lg shadow-lg hover:bg-osu-scarlet-dark-40 transition-all flex items-center justify-center gap-2 disabled:opacity-60 min-h-[56px]"
                 >
                   {submitting ? (

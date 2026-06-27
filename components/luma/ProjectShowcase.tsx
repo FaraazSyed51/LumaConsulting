@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { ArrowRight, Calendar, Rocket, Target, Wrench } from "lucide-react";
+import { ArrowRight, Calendar, Rocket, Target, Wrench, Sparkles } from "lucide-react";
 import { lumaProjects, projectIcon } from "@/data/lumaProjects";
 
 export default function ProjectShowcase() {
@@ -141,6 +141,26 @@ export default function ProjectShowcase() {
                         ))}
                       </ul>
                     </div>
+                  </div>
+
+                  <div className="mb-6 p-5 rounded-xl bg-osu-scarlet/5 border border-osu-scarlet/15">
+                    <div className="flex items-center gap-2 mb-3">
+                      <Sparkles className="w-4 h-4 text-osu-scarlet flex-shrink-0" />
+                      <h4 className="text-xs font-bold text-osu-gray-dark-80 uppercase tracking-wide">
+                        Experience & benefits you&apos;ll gain
+                      </h4>
+                    </div>
+                    <ul className="space-y-1.5">
+                      {project.experienceBenefits.map((item) => (
+                        <li
+                          key={item}
+                          className="flex gap-2 text-sm text-osu-gray-dark-40 leading-relaxed"
+                        >
+                          <span className="text-osu-scarlet flex-shrink-0">•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
 
                   {/* Footer: meta + skills + CTA */}
