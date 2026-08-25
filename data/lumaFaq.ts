@@ -7,7 +7,7 @@ export const studentFaqs: FaqItem[] = [
   },
   {
     q: "Which projects are open right now?",
-    a: "The Wahed iWaqf Platform team is accepting applications now. Other projects, like the Ohio Muslim Community Platform, are listed on the site as coming soon. When new teams open, we'll reach out using the contact info from your application.",
+    a: "Student applications are currently closed. Fall Luma semester will be announced soon. Stay tuned on Discord and Instagram for project openings and application dates.",
   },
   {
     q: "Is this paid?",
@@ -18,8 +18,8 @@ export const studentFaqs: FaqItem[] = [
     a: "Most students commit 2–6 hours a week, but it varies by project and phase. You'll set your availability in the application and we'll match accordingly.",
   },
   {
-    q: "What happens after I apply?",
-    a: "We review applications as they come in. If you're a fit for a project, we'll reach out about next steps, usually a short conversation and then onboarding to the team.",
+    q: "When can I apply again?",
+    a: "Fall Luma semester details will be announced soon. Follow our Discord and Instagram so you hear when applications reopen.",
   },
 ];
 

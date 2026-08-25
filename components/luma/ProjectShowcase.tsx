@@ -22,14 +22,13 @@ export default function ProjectShowcase() {
           className="text-center mb-12"
         >
           <p className="text-osu-scarlet font-semibold uppercase tracking-widest text-sm mb-3">
-            Open Projects
+            Projects
           </p>
           <h2 className="text-4xl md:text-5xl font-bold text-osu-gray-dark-80 mb-4">
-            Open project teams
+            Project teams
           </h2>
           <p className="text-lg text-osu-gray-dark-40 max-w-2xl mx-auto">
-            Live partnerships with real deliverables. One team is open now; more
-            projects are coming soon.
+            Fall Luma semester will be announced soon. Stay tuned for openings.
           </p>
         </motion.div>
 
@@ -166,7 +165,8 @@ export default function ProjectShowcase() {
                   {/* Footer: meta + skills + CTA */}
                   <div className="pt-5 border-t border-osu-gray-light-40 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
                     <div className="space-y-3">
-                      {(project.application.deadline || project.application.startDate) && (
+                      {!isComingSoon &&
+                        (project.application.deadline || project.application.startDate) && (
                         <div className="flex flex-wrap gap-x-5 gap-y-1.5 text-sm">
                           {project.application.deadline && (
                             <span className="inline-flex items-center gap-1.5 font-medium text-osu-gray-dark-80">
@@ -199,7 +199,7 @@ export default function ProjectShowcase() {
 
                     {isComingSoon ? (
                       <span className="flex-shrink-0 inline-flex items-center justify-center px-5 py-3 bg-osu-gray-light-80 text-osu-gray-dark-40 font-semibold rounded-xl border border-osu-gray-light-40">
-                        Applications opening soon
+                        Coming soon
                       </span>
                     ) : (
                       <Link

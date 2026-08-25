@@ -69,6 +69,7 @@ export const lumaProjects: LumaProject[] = [
       "Build a portfolio piece tied to a real partner, real users, and real impact",
     ],
     tags: ["Fintech", "Waqf", "US launch", "Mobile app"],
+    comingSoon: true,
     application: {
       intro:
         "Wahed Invest is one of the largest Muslim-owned fintech companies in the world. MTC students on this team help build iWaqf, a waqf app launching first in the US, so any Muslim family can create and manage a charitable endowment in minutes. The work covers the full user experience: account creation, contributions, and integration with Wahed's US financial infrastructure. The goal is a Shariah-compliant product live for American users, with the first waqf creatable in under three minutes.",
