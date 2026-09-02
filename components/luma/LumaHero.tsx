@@ -12,9 +12,9 @@ const copy = {
     badge: "Luma for Students",
     title: "Work on something real.",
     accent: "Ship it with a real partner.",
-    body: "Luma places OSU students on live project teams with real partners. Fall semester openings will be announced soon. Stay tuned.",
-    primary: { label: "See projects", href: "#projects" },
-    secondary: { label: "Stay tuned", href: "#form" },
+    body: "Luma places OSU students on live project teams with real partners. Submit one application, rank your preferences across Wahed, Shahed Amanullah, and Halal Bites, and we'll match you to the best fit.",
+    primary: { label: "Apply now", href: "#form" },
+    secondary: { label: "See projects", href: "#projects" },
   },
   partner: {
     badge: "Luma for Partners",

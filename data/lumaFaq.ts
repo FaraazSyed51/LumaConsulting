@@ -7,7 +7,11 @@ export const studentFaqs: FaqItem[] = [
   },
   {
     q: "Which projects are open right now?",
-    a: "Student applications are currently closed. Fall Luma semester will be announced soon. Stay tuned on Discord and Instagram for project openings and application dates.",
+    a: "Three Fall Luma teams are open: Wahed × Muslim Tech Collab, Shahed Amanullah × Community Tools, and Halal Bites × Muslim Tech Collab. Rank your preferences in the application so we can place you on the best-fit team.",
+  },
+  {
+    q: "How does project ranking work?",
+    a: "In the application you'll rank the open projects in order of preference. We use that to place you on the best-fit team. If you're set on one project, put it first.",
   },
   {
     q: "Is this paid?",
@@ -18,8 +22,8 @@ export const studentFaqs: FaqItem[] = [
     a: "Most students commit 2–6 hours a week, but it varies by project and phase. You'll set your availability in the application and we'll match accordingly.",
   },
   {
-    q: "When can I apply again?",
-    a: "Fall Luma semester details will be announced soon. Follow our Discord and Instagram so you hear when applications reopen.",
+    q: "What happens after I apply?",
+    a: "We review applications as they come in. If you're a fit for a project, we'll reach out about next steps, usually a short conversation and then onboarding to the team.",
   },
 ];
 

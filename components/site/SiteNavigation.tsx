@@ -310,7 +310,7 @@ const LUMA_STUDENT_SECTIONS = [
   { label: "Projects", href: "#projects" },
   { label: "Why Join", href: "#students" },
   { label: "FAQ", href: "#faq" },
-  { label: "Updates", href: "#form" },
+  { label: "Apply", href: "#form" },
 ] as const;
 
 const LUMA_PARTNER_SECTIONS = [

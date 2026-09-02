@@ -184,7 +184,11 @@ function doPost(e) {
       appendToSheet(SHEET_ID_STUDENTS, buildStudentRow(data));
 
       const rankings = data.projectRankings || [];
-      if (rankings[0] === "iwaqf" && SHEET_ID_IWAQF && SHEET_ID_IWAQF.indexOf("PASTE_") !== 0) {
+      if (
+        (rankings[0] === "wahed" || rankings[0] === "iwaqf") &&
+        SHEET_ID_IWAQF &&
+        SHEET_ID_IWAQF.indexOf("PASTE_") !== 0
+      ) {
         appendToSheet(SHEET_ID_IWAQF, buildIwaqfRow(data));
       }
     } else {

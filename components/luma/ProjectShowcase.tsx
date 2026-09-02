@@ -22,13 +22,14 @@ export default function ProjectShowcase() {
           className="text-center mb-12"
         >
           <p className="text-osu-scarlet font-semibold uppercase tracking-widest text-sm mb-3">
-            Projects
+            Open Projects
           </p>
           <h2 className="text-4xl md:text-5xl font-bold text-osu-gray-dark-80 mb-4">
-            Project teams
+            Open project teams
           </h2>
           <p className="text-lg text-osu-gray-dark-40 max-w-2xl mx-auto">
-            Fall Luma semester will be announced soon. Stay tuned for openings.
+            Three Fall Luma partnerships with real deliverables. Read each brief,
+            then rank your preferences when you apply.
           </p>
         </motion.div>
 

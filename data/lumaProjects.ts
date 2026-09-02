@@ -1,4 +1,4 @@
-import { Map, Landmark, type LucideIcon } from "lucide-react";
+import { Map, Landmark, UtensilsCrossed, type LucideIcon } from "lucide-react";
 import { createElement, type ReactNode } from "react";
 
 export type LumaPartner = {
@@ -25,7 +25,7 @@ export type LumaProject = {
   partner: LumaPartner;
   /** One-line hook */
   summary: string;
-  /** Why this project matters — impact & significance */
+  /** Why this project matters */
   significance: string;
   /** What students will actually build / work on */
   howWeHelp: string[];
@@ -39,103 +39,150 @@ export type LumaProject = {
 
 export const lumaProjects: LumaProject[] = [
   {
-    id: "iwaqf",
+    id: "wahed",
     icon: Landmark,
-    title: "Wahed iWaqf Platform",
-    client: "US launch · Partnership with Wahed Invest",
+    title: "Wahed × Muslim Tech Collab",
+    client: "Technology, Islamic finance & community investment",
     partner: {
-      name: "Wahed Invest",
-      title: "Global Muslim fintech · Shariah-compliant investing",
+      name: "Wahed",
+      title: "Global Islamic fintech · Halal investing, Ventures & iWaqf",
       logo: "/images/partners/wahed-logo.svg",
       logoAlt: "Wahed logo",
     },
     summary:
-      "Help launch iWaqf in the US: a waqf app that lets Muslim families set up a Shariah-compliant charitable endowment in minutes, built with Wahed Invest and rolling out to American users first.",
+      "Collaborate with Wahed across technology, finance, and marketing: build a full-stack app for a selected Wahed service, support iWaqf, research for Wahed Ventures, and selected outreach.",
     significance:
-      "Waqf has been a way for Muslims to leave lasting charity for over a thousand years, but setting one up today is still out of reach for most families. iWaqf is changing that, and this team is building the US launch. Students work directly with Wahed to ship a real product Americans can use, with contributions flowing through Wahed's US infrastructure.",
+      "Wahed makes Shari'ah-compliant financial services easier to access and understand. This partnership strengthens the tech, research, and community support behind those products so Muslim investors, waqf founders, and values-aligned founders get better tools and clearer experiences.",
     howWeHelp: [
-      "Build the create-a-waqf flow end to end, from account setup to first endowment in under 3 minutes",
-      "Integrate Wahed's US payment rails so contributions reconcile cleanly and stay Shariah-compliant",
-      "Design and ship the mobile/web UX for the US launch: account creation, contributions, and legacy features",
-      "Instrument activation, contribution size, and repeat-use metrics for the first US cohort",
-      "Support shareable features (legacy cards, gift-a-waqf) to help the product spread organically",
+      "Design and build a full-stack application for a selected Wahed service (accounts, dashboards, onboarding, admin tools)",
+      "Support and improve the iWaqf platform: onboarding, records, dashboards, usability, and accessibility",
+      "Research and operational support for Wahed Ventures: market maps, company profiles, and due-diligence support",
+      "Fintech and Islamic finance research: surveys, reports, product recommendations, and educational materials",
+      "Selected marketing and community outreach for Wahed, iWaqf, or Wahed Ventures (with Wahed review before publish)",
     ],
     experienceBenefits: [
-      "Connect with Wahed's CTO, CEO, investors, and engineers throughout the build",
-      "Real exposure to a global Muslim fintech company and a path to future opportunities at Wahed",
-      "Hands-on learning across product, engineering, and Shariah-compliant fintech",
-      "Ship features for a live US launch you can walk through in interviews",
-      "Work on a cross-functional student team with MTC mentorship and structure",
-      "Build a portfolio piece tied to a real partner, real users, and real impact",
+      "Work with a global Islamic fintech company across product, finance, research, and marketing",
+      "Build experience in full-stack product development on a real Wahed need",
+      "Learn about Islamic finance, venture capital, and financial technology",
+      "Create portfolio-ready technical, research, or design work",
+      "Contribute to services built for Muslim investors and communities",
+      "Collaborate on a 6–8 person cross-functional MTC team with clear workstreams",
     ],
-    tags: ["Fintech", "Waqf", "US launch", "Mobile app"],
-    comingSoon: true,
+    tags: ["Fintech", "Full-stack", "iWaqf", "Research", "Islamic finance"],
     application: {
       intro:
-        "Wahed Invest is one of the largest Muslim-owned fintech companies in the world. MTC students on this team help build iWaqf, a waqf app launching first in the US, so any Muslim family can create and manage a charitable endowment in minutes. The work covers the full user experience: account creation, contributions, and integration with Wahed's US financial infrastructure. The goal is a Shariah-compliant product live for American users, with the first waqf creatable in under three minutes.",
+        "Muslim Tech Collab at Ohio State will collaborate with Wahed on projects across technology, finance, and marketing. Priorities will be set with Wahed based on current needs and the skills of the student team. Workstreams include building a full-stack application for a selected Wahed service, supporting iWaqf, research for Wahed Ventures, Islamic finance research, and selected marketing or outreach. Student work is not financial, legal, tax, or religious advice; regulatory and Shari'ah decisions stay with Wahed and qualified professionals.",
       highlights: [
-        "Work directly with a global Muslim fintech company",
-        "Hands-on app development with a real launch target",
-        "Strong portfolio piece and potential recruitment pipeline",
-        "Selected students collaborate on a team to ship a real product",
+        "Work with a global Islamic fintech across tech, finance, and marketing",
+        "Deliver a working full-stack application for a selected Wahed service",
+        "Support iWaqf, Wahed Ventures research, and community outreach",
+        "Roles for developers, designers, researchers, analysts, and marketers",
       ],
       experiencePreferred: [
-        "App development",
-        "UI/UX design",
-        "Product development",
-        "Full-stack engineering",
-        "Financial technology (or willingness to learn)",
+        "Full-stack or frontend/backend development",
+        "UI/UX design and product planning",
+        "Islamic finance, market, or venture research",
+        "Financial modeling or data analysis",
+        "Content, graphic design, or community outreach",
       ],
-      deadline: "Wednesday, July 1",
-      startDate: "Immediately after selection",
+      startDate: "Fall semester · Teams form after selection",
       contactEmail: "ohiostatemtc@gmail.com",
     },
   },
   {
-    id: "community-platform",
+    id: "shahed-amanullah",
     icon: Map,
-    title: "Ohio Muslim Community Platform",
-    client: "Community infrastructure & organizing",
+    title: "Shahed Amanullah × Community Tools",
+    client: "Community tools & advocacy infrastructure across Ohio",
     partner: {
       name: "Shahed Amanullah",
       title: "Founder of zabhiah.com · Muslim tech entrepreneur",
     },
     summary:
-      "Community tools and advocacy infrastructure for Muslims across Ohio, rebuilding 40 Homes and a statewide organizing map.",
+      "Rebuild a private coordination platform for Muslim organizations and volunteers, and build a statewide organizing map of communities, orgs, and campaigns across Ohio.",
     significance:
-      "Ohio Muslim communities coordinate help, events, and advocacy every day, often through group chats and public social media that aren't built for sensitive work. This project gives orgs a private place to coordinate and gives advocates a real picture of where communities are and what they're working on.",
+      "Ohio Muslim communities coordinate help, events, and advocacy every day, often through group chats and public social media that aren't built for sensitive work. This project gives organizations a private place to coordinate and gives advocates a real picture of where communities are and what they're working on.",
     howWeHelp: [
-      "Rebuild the 40 Homes platform: org signup, volunteer matching, messaging, and secure event coordination",
-      "Structure data on communities, masajid, nonprofits, and campaigns across Ohio",
+      "Rebuild the Shahed Amanullah platform: org signup, volunteer matching, messaging, and secure event coordination",
+      "Structure statewide data on communities, masajid, nonprofits, and campaigns across Ohio",
       "Build interactive maps and dashboards for organizing and meetings with officials",
-      "Design access controls and data practices that keep sensitive community info protected",
+      "Design access controls and data practices that keep sensitive community information protected",
     ],
     experienceBenefits: [
-      "Work with Shahed Amanullah, founder of zabhiah.com and a leading Muslim tech entrepreneur",
-      "Direct impact on masajid, nonprofits, and community orgs across Ohio",
-      "Blend product, data, mapping, and research skills on civic tech that matters",
-      "Learn how to build responsibly when community data is sensitive",
-      "Portfolio work on organizing infrastructure used for real advocacy",
-      "Exposure to stakeholders, org leaders, and the people your tools will serve",
+      "Work directly with Shahed Amanullah, founder of zabhiah.com and a leading Muslim tech entrepreneur",
+      "Direct impact on masajid, nonprofits, and community organizations across Ohio",
+      "Hands-on experience blending product, data, mapping, and research skills on civic tech",
+      "Learn how to build responsibly when the data involved is sensitive",
+      "Portfolio-ready work on organizing infrastructure used for real advocacy",
+      "Direct exposure to stakeholders, organization leaders, and the communities your tools will serve",
     ],
-    tags: ["Web platform", "Mapping", "Community", "Advocacy"],
-    comingSoon: true,
+    tags: ["Web platform", "Mapping", "Community", "Advocacy", "Security"],
     application: {
       intro:
-        "Work with Shahed Amanullah on community infrastructure for Ohio Muslims, rebuilding the 40 Homes volunteer coordination platform and an internal mapping layer used for organizing and advocacy with officials.",
+        "Muslim Tech Collab at Ohio State will partner with Shahed Amanullah to rebuild community tools and advocacy infrastructure for Muslims across Ohio. The engagement centers on two connected efforts: rebuilding a private coordination space for Muslim organizations and volunteers, and building a statewide organizing map of communities, organizations, and campaigns. Expected team size is about 4–5 members working across platform, data, dashboards, and security.",
       highlights: [
-        "Real impact on masajid, nonprofits, and community orgs across Ohio",
-        "Mix of product work, data, and mapping. Good for varied skill sets",
-        "Sensitive community data. You'll learn how to build responsibly",
+        "Partner with Shahed Amanullah on civic tech for Ohio Muslim communities",
+        "Rebuild a secure coordination platform for orgs and volunteers",
+        "Build presentation-ready statewide maps and advocacy dashboards",
+        "Strong fit for product, data, mapping, and security-minded students",
       ],
       experiencePreferred: [
         "Web development (React, Next.js)",
         "UI/UX design",
         "Data & research",
         "GIS / mapping tools",
-        "Product thinking",
+        "Product thinking and access-control design",
       ],
-      startDate: "Rolling. Teams form as projects kick off",
+      startDate: "Fall semester · Teams form after selection",
+      contactEmail: "ohiostatemtc@gmail.com",
+    },
+  },
+  {
+    id: "halal-bites",
+    icon: UtensilsCrossed,
+    title: "Halal Bites × Muslim Tech Collab",
+    client: "Halal restaurant discovery platform",
+    partner: {
+      name: "Halal Bites",
+      title: "Halal restaurant discovery for consumers & businesses",
+    },
+    summary:
+      "Strengthen the Halal Bites platform for consumers, restaurant owners, and community partners: Business Dashboard, Public API, Backend API, and Web Platform improvements.",
+    significance:
+      "Halal Bites helps Muslim consumers discover halal restaurants and food options, while supporting restaurant owners and community organizations that need accurate, shareable dining information. Improving the platform makes halal discovery easier for users and more useful for mosques, MSAs, and partners.",
+    howWeHelp: [
+      "Build a Business Dashboard so restaurants can manage listings, photos, reviews, and multi-location presence",
+      "Design and ship a Public API so mosques, MSAs, and developers can access selected restaurant information",
+      "Strengthen the Backend API that connects the website, dashboard, and public integrations",
+      "Improve the consumer Web Platform: discovery, search, profiles, photos, reviews, and usability",
+      "Optional capacity: market analysis, community feedback, graphic design, and outreach",
+    ],
+    experienceBenefits: [
+      "Hands-on experience on a live consumer platform serving Muslim diners and restaurants",
+      "Work across product, APIs, dashboards, and web UX on connected workstreams",
+      "Build portfolio pieces: Business Dashboard, Public API, backend, or web improvements",
+      "Collaborate on a focused 4–5 person team with clear deliverables",
+      "Optional marketing experience: research, design, and community outreach",
+      "Real impact helping people find halal food and helping restaurants stay accurate online",
+    ],
+    tags: ["Web platform", "APIs", "Dashboard", "Product", "Consumer"],
+    application: {
+      intro:
+        "Muslim Tech Collab at Ohio State will collaborate with Halal Bites to strengthen its platform for consumers, restaurant owners, and community partners. Primary focus areas are the Business Dashboard, Public API, Backend API, and Halal Bites Web Platform. The project is expected to involve about 4–5 members. If capacity allows, the collaboration may also include marketing support such as graphic design, market analysis, community research, and outreach.",
+      highlights: [
+        "Ship features for a real halal restaurant discovery platform",
+        "Work across dashboard, APIs, and consumer web experience",
+        "Help businesses manage listings and communities reuse restaurant data",
+        "Optional marketing and outreach work if team capacity allows",
+      ],
+      experiencePreferred: [
+        "Full-stack or frontend/backend development",
+        "API design and implementation",
+        "UI/UX design",
+        "Product thinking",
+        "Market research, design, or outreach (optional track)",
+      ],
+      startDate: "Fall semester · Teams form after selection",
       contactEmail: "ohiostatemtc@gmail.com",
     },
   },

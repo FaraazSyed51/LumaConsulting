@@ -13,6 +13,7 @@ import {
   Building2,
   Map,
   Landmark,
+  UtensilsCrossed,
 } from "lucide-react";
 import { lumaProjects } from "@/data/lumaProjects";
 
@@ -35,6 +36,9 @@ const ORG_TYPE_OPTIONS = [
 ];
 
 const PROJECT_ICONS = {
+  wahed: Landmark,
+  "shahed-amanullah": Map,
+  "halal-bites": UtensilsCrossed,
   "community-platform": Map,
   iwaqf: Landmark,
 } as const;
