@@ -7,7 +7,7 @@ export const studentFaqs: FaqItem[] = [
   },
   {
     q: "Which projects are open right now?",
-    a: "Three Fall Luma teams are open: Wahed × Muslim Tech Collab, Shahed Amanullah × Community Tools, and Halal Bites × Muslim Tech Collab. Rank your preferences in the application so we can place you on the best-fit team.",
+    a: "Three Fall Luma teams are open: Wahed, Muslim Community Map, and Halal Bites. Rank your preferences in the application so we can place you on the best-fit team.",
   },
   {
     q: "How does project ranking work?",

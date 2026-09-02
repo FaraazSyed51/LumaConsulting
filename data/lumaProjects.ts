@@ -41,7 +41,7 @@ export const lumaProjects: LumaProject[] = [
   {
     id: "wahed",
     icon: Landmark,
-    title: "Wahed × Muslim Tech Collab",
+    title: "Wahed",
     client: "Technology, Islamic finance & community investment",
     partner: {
       name: "Wahed",
@@ -92,7 +92,7 @@ export const lumaProjects: LumaProject[] = [
   {
     id: "shahed-amanullah",
     icon: Map,
-    title: "Shahed Amanullah × Community Tools",
+    title: "Muslim Community Map",
     client: "Community tools & advocacy infrastructure across Ohio",
     partner: {
       name: "Shahed Amanullah",
@@ -140,7 +140,7 @@ export const lumaProjects: LumaProject[] = [
   {
     id: "halal-bites",
     icon: UtensilsCrossed,
-    title: "Halal Bites × Muslim Tech Collab",
+    title: "Halal Bites",
     client: "Halal restaurant discovery platform",
     partner: {
       name: "Halal Bites",
